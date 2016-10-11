@@ -8,4 +8,4 @@ const routes: Routes = [
   { path: '**', component: DisplayComponent }
 ];
 
-export const routing: ModuleWithProviders = RouterModule.forRoot(routes);
+export const routing: ModuleWithProviders = RouterModule.forRoot(routes, { useHash: true });
