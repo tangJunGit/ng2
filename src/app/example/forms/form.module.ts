@@ -20,4 +20,4 @@ import { ValidationComponent } from './validation.component';
     ],
     providers: [],
 })
-export class FormBuilderDemoModule { }
+export class FormDemoModule { }

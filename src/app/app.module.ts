@@ -4,7 +4,7 @@ import { HttpModule } from '@angular/http';
 
 import { routing } from './app.routing'; 
 import { DisplayModule } from './display/display.module';
-import { FormBuilderDemoModule } from './example/forms/form.module';
+import { FormDemoModule } from './example/forms/form.module';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -13,7 +13,7 @@ import { AppComponent } from './app.component';
         HttpModule,
         routing,
         DisplayModule,
-        FormBuilderDemoModule
+        FormDemoModule
     ],
     declarations: [
         AppComponent
