@@ -5,7 +5,23 @@ import { skuValidator } from './custom-validations';  //自定义验证
 
 @Component({
     selector: 'form-validation',
-    templateUrl: 'validation.component.html'
+    template: `
+        <div class="col-md-6">
+            <h2>Demo FormValidation: SKU</h2>
+            <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
+                <div class="form-group">
+                    <label for="skuInput">SKU</label>
+                    <input type="text" id="skuInput" class="form-control" 
+                    [formControl]="myForm.controls['sku']" placeholder="SKU">
+                    <div class="alert alert-danger" role="alert" [hidden]="myForm.controls['sku'].valid">SKU is invalid</div>
+                    <div class="alert alert-danger" role="alert" [hidden]="!myForm.controls['sku'].hasError('required')">SKU is required</div>
+                    <div class="alert alert-danger" role="alert" [hidden]="!myForm.controls['sku'].hasError('invalidSku')">SKU must begin with '123' </div>
+                </div>
+                <div class="alert alert-danger" [hidden]="myForm.valid">Form is invalid</div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+    `
 })
 export class ValidationComponent implements OnInit {
     myForm: FormGroup;
