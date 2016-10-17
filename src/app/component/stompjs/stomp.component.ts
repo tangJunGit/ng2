@@ -59,9 +59,7 @@ export class StompComponent implements OnInit {
     }
     //取消订阅
     onunsubscribe(){
-        this.stompClient.unsubscribe('/topic/terminals', function (message:any) {
-            alert("unsubscribe:  See you next time!");
-        });
+        this.stompClient.unsubscribe('/topic/terminals');
     }
 
 }
