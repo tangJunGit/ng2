@@ -13,7 +13,17 @@ module.exports = {
     extensions: ['', '.js', '.ts']
   },
 
+  //stomp
+  node: {
+    net: 'empty',
+    tls: 'empty',
+    dns: 'empty'
+  },
+
   module: {
+     preLoaders: [
+        { test: /\.json$/, loader: 'json'}      //stomp
+    ],
     loaders: [
       {
         test: /\.ts$/,

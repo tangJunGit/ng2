@@ -11,6 +11,8 @@ import { Component, OnInit } from '@angular/core';
             <a routerLink='/form-validation' class="btn btn-primary btn-lg">Validations</a>
             <a routerLink='/http' class="btn btn-primary btn-lg">Http</a>
             <a routerLink='/http-search' class="btn btn-primary btn-lg">Http (Search Demo)</a>
+            <h2>Component</h2>
+            <a routerLink='/stomp' class="btn btn-primary btn-lg">Stomp</a>
         </main> 
     `,
     styles: [`

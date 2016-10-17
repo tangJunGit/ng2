@@ -1,0 +1,67 @@
+import { Component, OnInit } from '@angular/core';
+
+var SockJS = require('sockjs-client');
+var Stomp = require('stompjs');
+
+@Component({
+    selector: 'stomp-demo',
+    template: `
+        <h1>Stomp</h1>
+        <pre>{{message | json}}</pre>
+        <button class="default" (click)="onconnect()">重新连接</button>
+        <button class="default" (click)="ondisconnect()">断开连接</button>
+        <button class="default" (click)="onunsubscribe()">取消订阅</button>
+    `
+})
+export class StompComponent implements OnInit {
+    stompClient: any;
+    message: any;
+
+    constructor() { }
+
+    ngOnInit() {
+        this.onconnect();
+     }
+    //发送消息
+    send() {
+        var quote = {name: 'APPL', value: 195.46};
+        this.stompClient.send('/topic/stocks', {}, JSON.stringify(quote));
+    }
+    
+    onconnect() {
+        var that = this;
+        // 添加头信息
+        var headers = {
+            login: 'mylogin',
+            passcode: 'mypasscode',
+            'client-id': 'my-client-id'
+        };
+        //创建
+        var socket = new SockJS('http://103.245.129.20:8088/terminals');
+        this.stompClient = Stomp.over(socket, undefined, {protocols_whitelist: ['websocket']});
+        //连接
+        this.stompClient.connect(headers, function (frame:any) {
+            alert('Connect Success');
+            //订阅
+            that.stompClient.subscribe('/topic/terminals', function (greeting:any) {
+                //接收
+                this.message = greeting;
+            });
+        }, function (err:any) {
+            console.log('err', err);
+        });
+    }
+    //断开连接
+    ondisconnect(){
+        this.stompClient.disconnect(function() {
+            alert("disconnect:  See you next time!");
+        });
+    }
+    //取消订阅
+    onunsubscribe(){
+        this.stompClient.unsubscribe('/topic/terminals', function (message:any) {
+            alert("unsubscribe:  See you next time!");
+        });
+    }
+
+}
