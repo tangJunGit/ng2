@@ -11,6 +11,7 @@ var Stomp = require('stompjs');
         <button class="default" (click)="onconnect()">重新连接</button>
         <button class="default" (click)="ondisconnect()">断开连接</button>
         <button class="default" (click)="onunsubscribe()">取消订阅</button>
+        <button class="default" (click)="send()">发送消息</button>
     `
 })
 export class StompComponent implements OnInit {
@@ -24,8 +25,8 @@ export class StompComponent implements OnInit {
      }
     //发送消息
     send() {
-        var quote = {name: 'APPL', value: 195.46};
-        this.stompClient.send('/topic/stocks', {}, JSON.stringify(quote));
+        var quote = {name: 'APPLE', value: 195.46};
+        this.stompClient.send('/topic/terminals', {}, JSON.stringify(quote));
     }
     
     onconnect() {
@@ -45,7 +46,7 @@ export class StompComponent implements OnInit {
             //订阅
             that.stompClient.subscribe('/topic/terminals', function (greeting:any) {
                 //接收
-                this.message = greeting;
+                that.message = greeting;
             });
         }, function (err:any) {
             console.log('err', err);
