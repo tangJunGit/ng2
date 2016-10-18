@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'auth-demo',
+    selector: 'protected',
     template: `
-        
+        <h1>Protected content</h1>
     `
 })
-export class AuthComponent implements OnInit {
+export class ProtectedComponent implements OnInit {
     constructor() { }
 
     ngOnInit() { }
