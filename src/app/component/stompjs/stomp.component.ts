@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 var SockJS = require('sockjs-client');
 var Stomp = require('stompjs');
@@ -14,7 +14,7 @@ var Stomp = require('stompjs');
         <button class="default" (click)="send()">发送消息</button>
     `
 })
-export class StompComponent implements OnInit {
+export class StompComponent implements OnInit, OnDestroy {
     stompClient: any;
     message: any;
 
@@ -22,6 +22,10 @@ export class StompComponent implements OnInit {
 
     ngOnInit() {
         this.onconnect();
+     }
+
+     ngOnDestroy(){
+         this.ondisconnect();
      }
     //发送消息
     send() {
