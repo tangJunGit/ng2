@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { httpRouting } from './http.routing';
 import { HttpDemoComponent }   from './http.component';
+import { HttpService } from './http.service';
+
 import { YoutubeSearchDemoComponent } from './http-search/youtube-search.component';
 import { SearchBoxComponent } from './http-search/search-box.component';
 import { SearchResultComponent } from './http-search/search-result.component';
@@ -22,6 +24,7 @@ import { YOUTUBE_API_KEY, YOUTUBE_API_URL } from './http-search/youtube-api';
         SearchResultComponent
     ],
     providers: [
+        HttpService, 
         YoutubeService,
         {provide: YOUTUBE_API_KEY, useValue: YOUTUBE_API_KEY},
         {provide: YOUTUBE_API_URL, useValue: YOUTUBE_API_URL}
