@@ -46,7 +46,7 @@ export class StompComponent implements OnInit, OnDestroy {
         this.stompClient = Stomp.over(socket, undefined, {protocols_whitelist: ['websocket']});
         //连接
         this.stompClient.connect(headers, function (frame:any) {
-            alert('Connect Success');
+            alert('连接成功!');
             //订阅
             that.stompClient.subscribe('/topic/terminals', function (greeting:any) {
                 //接收
@@ -59,7 +59,7 @@ export class StompComponent implements OnInit, OnDestroy {
     //断开连接
     ondisconnect(){
         this.stompClient.disconnect(function() {
-            alert("disconnect:  See you next time!");
+            alert("断开连接!");
         });
     }
     //取消订阅
