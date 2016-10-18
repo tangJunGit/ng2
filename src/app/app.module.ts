@@ -1,33 +1,42 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule  } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
+import { LocationStrategy, HashLocationStrategy, APP_BASE_HREF } from '@angular/common';
 
 import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 
 //example
-import { DisplayModule } from './display/display.module';
+import { IndexModule } from './index/index.module';
 import { FormDemoModule } from './example/forms/form.module';
 import { HttpDemoModule } from './example/http/http.module';
+import { RouteDemoModule } from './example/route/route.module';
+import { AuthDemoModule } from './example/auth/auth.module';
 
 //component
 import { StompModule } from './component/stompjs/stomp.module';
-
 
 @NgModule({
     imports: [
         BrowserModule,
         HttpModule,
         routing,
-        DisplayModule,
+        IndexModule,
         FormDemoModule,
         HttpDemoModule,
+        RouteDemoModule,
+        AuthDemoModule,
         StompModule
     ],
     declarations: [
         AppComponent
     ],
-    //providers: [],
-    bootstrap: [AppComponent],
+    providers: [
+        { provide: LocationStrategy, useClass: HashLocationStrategy },
+        { provide: APP_BASE_HREF, useValue: '/demo/' } 
+    ],
+    bootstrap: [
+        AppComponent
+    ],
 })
 export class AppModule { }
