@@ -5,9 +5,12 @@ import { RouteDemoComponent } from './route.component';
 import { RouteTestComponent } from './test.component';
  
 const routes: Routes = [
-  { path: 'route', component: RouteDemoComponent },
-  //parameter
-  { path: 'route/:id', component: RouteTestComponent },
+  { path: 'route', children:   //子路由
+    [    
+      { path: '', component: RouteDemoComponent},
+      { path: ':id', component: RouteTestComponent},
+    ]
+  },
 ];
 
 export const routeRouting: ModuleWithProviders = RouterModule.forChild(routes);

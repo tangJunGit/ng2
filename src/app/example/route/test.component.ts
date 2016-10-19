@@ -32,7 +32,15 @@ export class RouteTestComponent implements OnInit {
     ngOnInit() { }
 
     queryParams(): void{
-        this.router.navigate(['route', this.id], {queryParams: {query: "query"}})   //  /route/1?query=query
+        // 绝对路径
+        // this.router.navigate(['route', this.id], {queryParams: {query: "query"}})   //  /route/1?query=query
+        //     .then(_ => {
+        //         alert("跳转前此处处理……");
+        //     });
+
+
+        //相对路径  ../ 指子路由上一级   ./ 指当前
+           this.router.navigate(['../', this.id], {relativeTo: this.route, queryParams: {query: "query"}})   //  /route/1?query=query
             .then(_ => {
                 alert("跳转前此处处理……");
             });
