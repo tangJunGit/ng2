@@ -3,12 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { RouteDemoComponent } from './route.component';
 import { RouteTestComponent } from './test.component';
+import { WelcomeComponent } from './welcome.component';
  
 const routes: Routes = [
-  { path: 'route', children:   //子路由
+  { path: 'route', component: RouteDemoComponent, children:   //子路由
     [    
-      { path: '', component: RouteDemoComponent},
-      { path: ':id', component: RouteTestComponent},
+      { path: '', component: WelcomeComponent},
+      { path: ':id/:id2', component: RouteTestComponent},
     ]
   },
 ];
