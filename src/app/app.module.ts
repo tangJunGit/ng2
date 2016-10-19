@@ -13,6 +13,7 @@ import { HttpDemoModule } from './example/http/http.module';
 import { RouteDemoModule } from './example/route/route.module';
 import { AuthDemoModule } from './example/auth/auth.module';
 import { DirectiveDemoModule } from './example/directive/directive.module';
+import { PipeDemoModule } from './example/pipe/pipe.module';
 
 //component
 import { StompModule } from './component/stompjs/stomp.module';
@@ -23,11 +24,12 @@ import { StompModule } from './component/stompjs/stomp.module';
         HttpModule,
         routing,
         IndexModule,
-        FormDemoModule,
+        FormDemoModule, 
         HttpDemoModule,
         RouteDemoModule,
         AuthDemoModule,
         DirectiveDemoModule,
+        PipeDemoModule, 
         StompModule
     ],
     declarations: [
