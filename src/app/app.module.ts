@@ -12,6 +12,7 @@ import { FormDemoModule } from './example/forms/form.module';
 import { HttpDemoModule } from './example/http/http.module';
 import { RouteDemoModule } from './example/route/route.module';
 import { AuthDemoModule } from './example/auth/auth.module';
+import { DirectiveDemoModule } from './example/directive/directive.module';
 
 //component
 import { StompModule } from './component/stompjs/stomp.module';
@@ -26,6 +27,7 @@ import { StompModule } from './component/stompjs/stomp.module';
         HttpDemoModule,
         RouteDemoModule,
         AuthDemoModule,
+        DirectiveDemoModule,
         StompModule
     ],
     declarations: [

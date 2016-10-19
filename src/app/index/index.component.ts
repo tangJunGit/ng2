@@ -13,6 +13,7 @@ import { Component, OnInit } from '@angular/core';
             <a [routerLink]="['/http-search']" class="btn btn-primary btn-lg">Http (Search Demo)</a>
             <a [routerLink]="['/route']" class="btn btn-primary btn-lg">Route</a>
             <a [routerLink]="['/auth']" class="btn btn-primary btn-lg">Auth(守卫)</a>
+            <a [routerLink]="['/directive']" class="btn btn-primary btn-lg">Directive</a>
             <h2>Component</h2>
             <a [routerLink]="['/stomp']" class="btn btn-primary btn-lg">Stomp</a>
         </main> 
