@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { JsonpModule } from '@angular/http'; 
 
 import { httpRouting } from './http.routing';
 import { HttpDemoComponent }   from './http.component';
@@ -13,6 +14,7 @@ import { YOUTUBE_API_KEY, YOUTUBE_API_URL } from './http-search/youtube-api';
 
 @NgModule({
     imports: [ 
+        JsonpModule,
         httpRouting, 
         CommonModule
     ],

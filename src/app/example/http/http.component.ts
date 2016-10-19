@@ -8,7 +8,8 @@ import { HttpService } from './http.service';
     template: `
         <div class="col-md-6">
             <h2>Basic Request</h2>
-            <button type="button" class="btn" (click)="makeRequest()">Make Request</button>
+            <button type="button" class="btn" (click)="makeRequest()">请求数据</button>
+            <button type="button" class="btn" (click)="makeJsonp()">Jsonp数据</button>
             <div *ngIf="loading">loading...</div>
             <pre>{{data | json}}</pre>
         </div>
@@ -20,22 +21,14 @@ export class HttpDemoComponent implements OnInit {
 
     constructor(private http: Http, private httpService: HttpService) { }
 
-    ngOnInit() { }
-
+    ngOnInit() {  }
     makeRequest(): void{
         this.loading = true;
-        // this.http.request('http://jsonplaceholder.typicode.com/posts/1')
-        //     .subscribe(
-        //         (res: Response) => {
-        //             this.data = res.json();
-        //             this.loading = false;
-        //         }
-        //     );
 
         this.httpService.getDate()
             .subscribe(
                  (res: Response) => {
-                    this.data = res.json();
+                    this.data = res;
                     this.loading = false;
                 },
                 (error: any) => console.log(error)
@@ -43,4 +36,11 @@ export class HttpDemoComponent implements OnInit {
 
 
     }
+
+    makeJsonp(): void{
+        this.data = this.httpService.search('ng2');
+    }
+
+
+    
 }
