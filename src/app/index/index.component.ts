@@ -15,6 +15,7 @@ import { Component, OnInit } from '@angular/core';
             <a [routerLink]="['/auth']" class="btn btn-primary btn-lg">Auth(守卫)</a>
             <a [routerLink]="['/directive']" class="btn btn-primary btn-lg">Directive</a>
             <a [routerLink]="['/pipe']" class="btn btn-primary btn-lg">Pipe</a>
+            <a [routerLink]="['/communication']" class="btn btn-primary btn-lg">组件交互</a>
             <h2>Component</h2>
             <a [routerLink]="['/stomp']" class="btn btn-primary btn-lg">Stomp</a>
         </main> 

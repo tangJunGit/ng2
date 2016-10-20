@@ -14,6 +14,8 @@ import { RouteDemoModule } from './example/route/route.module';
 import { AuthDemoModule } from './example/auth/auth.module';
 import { DirectiveDemoModule } from './example/directive/directive.module';
 import { PipeDemoModule } from './example/pipe/pipe.module';
+import { CommunicationDemoModule } from './example/communication/comm.module';
+
 
 //component
 import { StompModule } from './component/stompjs/stomp.module';
@@ -30,6 +32,7 @@ import { StompModule } from './component/stompjs/stomp.module';
         AuthDemoModule,
         DirectiveDemoModule,
         PipeDemoModule, 
+        CommunicationDemoModule,
         StompModule
     ],
     declarations: [
