@@ -3,24 +3,7 @@ import { Title }     from '@angular/platform-browser';
 
 @Component({
     selector: 'my-index',
-    template: `
-        <main>
-            <img src="../../../resource/angular.png">
-            <h2>Example</h2>
-            <a [routerLink]="['/form']" class="btn btn-primary btn-lg" (click)="setTitle( 'angular form' )">Form</a>
-            <a [routerLink]="['/form-builder']" class="btn btn-primary btn-lg">FormBuilder</a>
-            <a [routerLink]="['/form-validation']" class="btn btn-primary btn-lg">Validations</a>
-            <a [routerLink]="['/http']" class="btn btn-primary btn-lg">Http</a>
-            <a [routerLink]="['/http-search']" class="btn btn-primary btn-lg">Http (Search Demo)</a>
-            <a [routerLink]="['/route']" class="btn btn-primary btn-lg">Route</a>
-            <a [routerLink]="['/auth']" class="btn btn-primary btn-lg">Auth(守卫)</a>
-            <a [routerLink]="['/directive']" class="btn btn-primary btn-lg">Directive</a>
-            <a [routerLink]="['/pipe']" class="btn btn-primary btn-lg">Pipe</a>
-            <a [routerLink]="['/communication']" class="btn btn-primary btn-lg">组件交互</a>
-            <h2>Component</h2>
-            <a [routerLink]="['/stomp']" class="btn btn-primary btn-lg">Stomp</a>
-        </main> 
-    `,
+    templateUrl: './index.component.html',
     styles: [`
         main {
             position: absolute;
