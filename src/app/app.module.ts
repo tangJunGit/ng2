@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule  } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';    // Title服务
 import { HttpModule } from '@angular/http';
 import { LocationStrategy, HashLocationStrategy, APP_BASE_HREF } from '@angular/common';
 
@@ -39,6 +39,7 @@ import { StompModule } from './component/stompjs/stomp.module';
         AppComponent
     ],
     providers: [
+        Title,
         { provide: LocationStrategy, useClass: HashLocationStrategy },
         { provide: APP_BASE_HREF, useValue: '/demo/' } 
     ],

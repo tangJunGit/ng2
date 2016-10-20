@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title }     from '@angular/platform-browser'; 
 
 @Component({
     selector: 'my-index',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
         <main>
             <img src="../../../resource/angular.png">
             <h2>Example</h2>
-            <a [routerLink]="['/form']" class="btn btn-primary btn-lg">Form</a>
+            <a [routerLink]="['/form']" class="btn btn-primary btn-lg" (click)="setTitle( 'angular form' )">Form</a>
             <a [routerLink]="['/form-builder']" class="btn btn-primary btn-lg">FormBuilder</a>
             <a [routerLink]="['/form-validation']" class="btn btn-primary btn-lg">Validations</a>
             <a [routerLink]="['/http']" class="btn btn-primary btn-lg">Http</a>
@@ -35,7 +36,13 @@ import { Component, OnInit } from '@angular/core';
     `]
 })
 export class IndexComponent implements OnInit {
-    constructor() { }
+    
+    constructor(private titleService: Title ){ }
 
     ngOnInit() { }
+
+    //设置title
+    setTitle( newTitle: string) {
+        this.titleService.setTitle( newTitle );
+    }
 }
