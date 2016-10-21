@@ -15,6 +15,7 @@ import { AuthDemoModule } from './example/auth/auth.module';
 import { DirectiveDemoModule } from './example/directive/directive.module';
 import { PipeDemoModule } from './example/pipe/pipe.module';
 import { CommunicationDemoModule } from './example/communication/comm.module';
+import { DepInjectionDemoModule } from './example/dep-injection/dep-injection.module';
 
 
 //component
@@ -33,6 +34,7 @@ import { StompModule } from './component/stompjs/stomp.module';
         DirectiveDemoModule,
         PipeDemoModule, 
         CommunicationDemoModule,
+        DepInjectionDemoModule,
         StompModule
     ],
     declarations: [
