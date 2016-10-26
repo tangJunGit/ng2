@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { stompRouting } from './stomp.routing';
 import { StompComponent }   from './stomp.component';
+import { StompService } from './stomp.service';
+import { ConfigService } from './config.service';
 
 @NgModule({
     imports: [
@@ -11,6 +13,9 @@ import { StompComponent }   from './stomp.component';
     ],
     exports: [],
     declarations: [StompComponent],
-    providers: [],
+    providers: [
+        StompService,
+        ConfigService
+    ],
 })
 export class StompModule { }

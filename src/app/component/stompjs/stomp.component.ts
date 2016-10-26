@@ -1,70 +1,58 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
-var SockJS = require('sockjs-client');
-var Stomp = require('stompjs');
+import { StompService } from './stomp.service';
+import { ConfigService } from './config.service';
+import { Config } from './stomp.model';
+
+var json = require("./config.json");
 
 @Component({
     selector: 'stomp-demo',
     template: `
         <h1>Stomp</h1>
-        <pre>{{message | json}}</pre>
         <button class="default" (click)="onconnect()">重新连接</button>
-        <button class="default" (click)="ondisconnect()">断开连接</button>
+        <button class="default" (click)="onsubscribe()">订阅</button>
         <button class="default" (click)="onunsubscribe()">取消订阅</button>
-        <button class="default" (click)="send()">发送消息</button>
+        <span>{{state}}</span>
+        <pre>{{messages | json}}</pre>
     `
 })
 export class StompComponent implements OnInit, OnDestroy {
-    stompClient: any;
-    message: any;
+    config: Config;
+    state: string;
+    messages: any;
+    imei: string[] = ['864695020005882'];
 
-    constructor() { }
+    constructor(private stompService: StompService, private configService: ConfigService) { }
 
     ngOnInit() {
-        this.onconnect();
+        this.config = json;
+        this.onconnect(this.config);
+        
+        //接受收据
+        this.stompService.messages.subscribe((message: any)=>{
+            this.messages = message;
+        });
+
+        //接受状态
+        this.stompService.state.subscribe((state: string)=>{
+            this.state = state;
+        });
      }
 
      ngOnDestroy(){
-         this.ondisconnect();
+         this.stompService.on_disconnect();
      }
-    //发送消息
-    send() {
-        var quote = {name: 'APPLE', value: 195.46};
-        this.stompClient.send('/topic/terminals', {}, JSON.stringify(quote));
-    }
-    
-    onconnect() {
-        var that = this;
-        // 添加头信息
-        var headers = {
-            login: 'mylogin',
-            passcode: 'mypasscode',
-            'client-id': 'my-client-id'
-        };
-        //创建
-        var socket = new SockJS('http://103.245.129.20:8088/terminals');
-        this.stompClient = Stomp.over(socket, undefined, {protocols_whitelist: ['websocket']});
-        //连接
-        this.stompClient.connect(headers, function (frame:any) {
-            alert('连接成功!');
-            //订阅
-            that.stompClient.subscribe('/topic/terminals', function (greeting:any) {
-                //接收
-                that.message = greeting;
-            });
-        }, function (err:any) {
-            console.log('err', err);
-        });
-    }
-    //断开连接
-    ondisconnect(){
-        this.stompClient.disconnect(function() {
-            alert("断开连接!");
-        });
-    }
-    //取消订阅
+
+     onconnect(config: Config,imei?: string[]){
+        this.stompService.on_connect(config, imei);
+     }
+
+     onsubscribe(){
+         this.stompService.on_subscribe(this.imei);
+     }
     onunsubscribe(){
-        this.stompClient.unsubscribe('/topic/terminals');
+        this.stompService.on_unsubscribe(this.imei);
     }
 
 }

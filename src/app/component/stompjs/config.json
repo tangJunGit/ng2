@@ -1,0 +1,10 @@
+{
+    "host": "10.9.42.202",
+    "port": "29298",
+    "publish": "/terminals",
+    "subscribe": "/topic/terminals",
+    "headers": {
+        "user": "stomp",
+        "pass": "test"
+    }
+}
