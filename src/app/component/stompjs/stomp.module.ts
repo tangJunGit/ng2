@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { stompRouting } from './stomp.routing';
 import { StompComponent }   from './stomp.component';
 import { StompService } from './stomp.service';
-import { ConfigService } from './config.service';
 
 @NgModule({
     imports: [
@@ -15,7 +14,6 @@ import { ConfigService } from './config.service';
     declarations: [StompComponent],
     providers: [
         StompService,
-        ConfigService
     ],
 })
 export class StompModule { }

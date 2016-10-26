@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { StompService } from './stomp.service';
-import { ConfigService } from './config.service';
 import { Config } from './stomp.model';
 
 var json = require("./config.json");
@@ -10,7 +9,6 @@ var json = require("./config.json");
     selector: 'stomp-demo',
     template: `
         <h1>Stomp</h1>
-        <button class="default" (click)="onconnect()">重新连接</button>
         <button class="default" (click)="onsubscribe()">订阅</button>
         <button class="default" (click)="onunsubscribe()">取消订阅</button>
         <span>{{state}}</span>
@@ -23,7 +21,7 @@ export class StompComponent implements OnInit, OnDestroy {
     messages: any;
     imei: string[] = ['864695020005882'];
 
-    constructor(private stompService: StompService, private configService: ConfigService) { }
+    constructor(private stompService: StompService) { }
 
     ngOnInit() {
         this.config = json;
