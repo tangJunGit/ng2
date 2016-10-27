@@ -4,7 +4,7 @@ import { Observable }     from 'rxjs/Observable';
 
 @Injectable()
 export class HttpService {
-    url: string = 'src/app/example/http/data.json';
+    url: string = 'mock/http-data.json';
 
     constructor(private http: Http, private jsonp: Jsonp) { }   
 
