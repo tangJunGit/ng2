@@ -3,6 +3,7 @@
     "port": "29298",
     "publish": "/terminals",
     "subscribe": "/topic/terminals",
+    "ws": "http",
     "headers": {
         "user": "stomp",
         "pass": "test"

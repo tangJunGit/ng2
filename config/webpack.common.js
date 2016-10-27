@@ -23,7 +23,11 @@ module.exports = {
 
   module: {
      preLoaders: [
-        { test: /\.json$/, loader: 'json'}      //stomp
+       //stomp
+        { 
+          test: /\.json$/, 
+          loader: 'json'
+        }      
     ],
     loaders: [
       {

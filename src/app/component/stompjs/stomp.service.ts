@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
 import { Config } from './stomp.model';
+import { ConfigService } from './config.service';
 
 var SockJS = require('sockjs-client');
 var Stomp = require('stompjs');
@@ -18,7 +19,7 @@ export class StompService {
     //webscoket状态
     state: Subject<string> = new Subject<string>();
 
-    constructor() { }
+    constructor(private configService: ConfigService) { }
     /**
      * 连接webscoket
      * 
@@ -27,33 +28,28 @@ export class StompService {
      * 
      * @memberOf StompService
      */
-    on_connect(config: Config,imei?: string[]) {
-        this.configure(config);
-
-        let socket = new SockJS(`${this.config.ws}://${config.host}:${config.port}/${config.publish}`);
-
-        this.stompClient = Stomp.over(socket, undefined, {protocols_whitelist: ['websocket']});
-        this.stompClient.connect(config.headers, (frame: any) => {
-            this.state.next('CONNECTED');
-            if(imei && imei.length) this.on_subscribe(imei);
-        }, this.on_error.bind(this));
+    on_connect(imei?: string[]) {
+         this.configService.getConfig().subscribe((config: Config) => {
+            this.config = config;
+            this.creat(imei);
+        });
 
     }
     /**
-     * 配置
+     * 创建 socket
      * 
-     * @param {Config} config   配置参数
+     * @param {string[]} [imei]    订阅的imei数组
      * 
      * @memberOf StompService
      */
-    configure(config: Config){
-         if (config === null)
-            throw Error("No configuration provided!");
-        
-        if(config) this.config = config;
-        
-        this.config.ws = !config.ssl ? 'http' : 'https';
-        
+    creat(imei?: string[]){
+        let socket = new SockJS(`${this.config.ws}://${this.config.host}:${this.config.port}/${this.config.publish}`);
+
+        this.stompClient = Stomp.over(socket, undefined, {protocols_whitelist: ['websocket']});
+        this.stompClient.connect(this.config.headers, (frame: any) => {
+            this.state.next('CONNECTED');
+            if(imei && imei.length) this.on_subscribe(imei);
+        }, this.on_error.bind(this));
     }
     /**
      * 断开webscoket
@@ -90,6 +86,7 @@ export class StompService {
         for(let i of imei){
             this.stompClient.unsubscribe(`${this.config.subscribe}/${imei}`);
         }
+        this.state.next('UNSUBSCRIBED');
     }
     /**
      * 接受数据

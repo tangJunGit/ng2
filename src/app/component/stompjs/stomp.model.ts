@@ -4,10 +4,8 @@ export interface Config{
 
     publish: string;
 	subscribe: string;
+    ws: string;
     
-    ssl?: boolean;
-    ws?: string;
-
     headers?: Headers;
 }
 
