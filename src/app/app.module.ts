@@ -16,6 +16,7 @@ import { DirectiveDemoModule } from './example/directive/directive.module';
 import { PipeDemoModule } from './example/pipe/pipe.module';
 import { CommunicationDemoModule } from './example/communication/comm.module';
 import { DepInjectionDemoModule } from './example/dep-injection/dep-injection.module';
+import { ReduxDemoModule } from './example/redux/redux.module';
 
 
 //component
@@ -35,6 +36,7 @@ import { StompModule } from './component/stompjs/stomp.module';
         PipeDemoModule, 
         CommunicationDemoModule,
         DepInjectionDemoModule,
+        ReduxDemoModule,
         //component
         StompModule
     ],
