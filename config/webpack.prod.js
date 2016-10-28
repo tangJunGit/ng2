@@ -10,8 +10,8 @@ module.exports = webpackMerge(commonConfig, {
     devtool: 'source-map',
 
     output: {
-        path: helpers.root('dist'),
-        publicPath: '/',
+        path: helpers.root('dist/ng2/'),
+        publicPath: '/ng2/',
         filename: '[name].[hash].js',
         chunkFilename: '[id].[hash].chunk.js'
     },

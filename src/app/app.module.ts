@@ -44,7 +44,7 @@ import { StompModule } from './component/stompjs/stomp.module';
     providers: [
         Title,
         { provide: LocationStrategy, useClass: HashLocationStrategy },
-        { provide: APP_BASE_HREF, useValue: '/demo/' } 
+        { provide: APP_BASE_HREF, useValue: '/demo/' } ,
     ],
     bootstrap: [
         AppComponent
