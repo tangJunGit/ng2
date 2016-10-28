@@ -62,7 +62,7 @@ http {
          }
 
          location /command-center {
-              root   F:/changhong/loving-command-center-service/command-center-web/dist;      
+              root   F:/command-center-web/dist;      
               index index.php index.html index.htm;
          }
          location /commandcenter {
