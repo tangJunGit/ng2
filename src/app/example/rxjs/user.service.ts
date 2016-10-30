@@ -14,5 +14,4 @@ export class UserService {
     }
 }
 
-export var userServiceInjectables: Array<any> = [UserService];
 
