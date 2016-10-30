@@ -1,78 +1,60 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OpaqueToken, Inject } from '@angular/core';
 import { Action, Reducer, Store, createStore } from 'redux';
 
-interface AppState {
-    messages: string[];
-}
+import * as CounterActions from './action';
+import { AppState } from './state';
+import { store } from './store';
 
-interface AddMessageAction extends Action {
-    message: string;
-}
-
-interface DeleteMessageAction extends Action {
-    index: number;
-}
+const AppStore = new OpaqueToken('App.store');
 
 @Component({
     selector: 'my-redux',
     template: `
-        
-    `
+        <div class="row">
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h3>Counter</h3>
+                        <p>Custom Store</p>
+                        <p>
+                            The counter value is: <b>{{ counter }}</b>
+                        </p>
+                        <p>
+                            <button (click)="increment()" class="btn btn-primary"> Increment </button>
+                            <button (click)="decrement()" class="btn btn-default"> Decrement </button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `,
+    providers: [
+        {provide: AppStore, useValue: store}
+    ]
 })
 export class ReduxComponent implements OnInit {
-    constructor() { }
+    counter: number;
+
+    constructor(@Inject(AppStore) private store: Store<AppState>) { 
+        // 监听store的变化
+        store.subscribe(() => this.readState());
+        this.readState();
+    }
 
     ngOnInit() {
-        let initialState: AppState = { messages: [] };
-
-        let reducer: Reducer<AppState> = (state: AppState = initialState, action: Action ) => {
-            switch (action.type){
-                case 'ADD_MESSAGE': 
-                    return {
-                        messages: state.messages.concat(
-                            (<AddMessageAction>action).message
-                        )
-                    };
-                case 'DELECT_MESSAGE':
-                    let idx = (<DeleteMessageAction>action).index;
-                    return {
-                        messages: [
-                            ...state.messages.slice(0, idx),
-                            ...state.messages.slice(idx + 1, state.messages.length)
-                        ]
-                    };
-            }
-        }
         
-        let store: Store<AppState> = createStore<AppState>(reducer);
-        console.log(store.getState());
-
-        store.dispatch(
-            MessageActions.addMessage('Would you say the fringe was made of silk?')
-        );
-        store.dispatch(
-            MessageActions.addMessage('Wouldnt have no other kind but silk?')
-        );
-        store.dispatch(
-            MessageActions.addMessage('Has it really got a team of snow white horses?')
-        );
-        console.log(store.getState());
-
-
      }
-}
 
-class MessageActions {
-    static addMessage(message: string): AddMessageAction{
-        return {
-            type: 'ADD_MESSAGE',
-            message: message
-        }
+    readState() {
+        let state: AppState = this.store.getState() as AppState;
+        this.counter = state.counter;
     }
-    static deleteMessage(index: number): DeleteMessageAction{
-        return {
-            type: 'DELECT_MESSAGE',
-            index: index
-        }
+
+    increment() {
+        this.store.dispatch(CounterActions.increment());
+    }
+
+    decrement() {
+        this.store.dispatch(CounterActions.decrement());
     }
 }
