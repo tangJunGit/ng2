@@ -34,7 +34,7 @@ import { Component, OnInit } from '@angular/core';
 
     `
 })
-export class ComponentDemoComponent implements OnInit {
+export class AdvancedDemoComponent implements OnInit {
     tabs: any;
 
     constructor() { 

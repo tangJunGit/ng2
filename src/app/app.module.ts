@@ -18,7 +18,7 @@ import { CommunicationDemoModule } from './example/communication/comm.module';
 import { DepInjectionDemoModule } from './example/dep-injection/dep-injection.module';
 import { RxjsDemoModule } from './example/rxjs/rxjs.module';
 import { ReduxDemoModule } from './example/redux/redux.module';
-import { ComponentDemoModule } from './example/component/component.module';
+import { AdvancedDemoModule } from './example/advanced/advanced.module';
 
 //component
 import { StompModule } from './component/stompjs/stomp.module';
@@ -40,7 +40,7 @@ import { TabModule } from './component/tab/tab.module';
         DepInjectionDemoModule,
         RxjsDemoModule,
         ReduxDemoModule,
-        ComponentDemoModule,
+        AdvancedDemoModule,
         //component
         StompModule,
         TabModule

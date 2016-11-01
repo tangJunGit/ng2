@@ -1,10 +1,10 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ComponentDemoComponent }   from './demo.component';
+import { AdvancedDemoComponent }   from './advanced.component';
 
 const routes: Routes = [
-  { path: 'component', component: ComponentDemoComponent },
+  { path: 'advanced', component: AdvancedDemoComponent },
 ];
 
 export const componentRouting: ModuleWithProviders = RouterModule.forChild(routes);

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ComponentDemoComponent }   from './demo.component';
-import { componentRouting } from './component.routing';
+import { AdvancedDemoComponent }   from './advanced.component';
+import { componentRouting } from './advanced.routing';
 import { PopupDirective } from './popup.directive';
 import { MessageComponent } from './transclusion';
 import { TabComponent, TabsetComponent } from './tab.component';
@@ -14,7 +14,7 @@ import { TabComponent, TabsetComponent } from './tab.component';
     ],
     exports: [],
     declarations: [
-        ComponentDemoComponent,
+        AdvancedDemoComponent,
         PopupDirective,
         MessageComponent,
         TabComponent,
@@ -22,4 +22,4 @@ import { TabComponent, TabsetComponent } from './tab.component';
     ],
     providers: [],
 })
-export class ComponentDemoModule { }
+export class AdvancedDemoModule { }
