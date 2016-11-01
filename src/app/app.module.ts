@@ -18,10 +18,11 @@ import { CommunicationDemoModule } from './example/communication/comm.module';
 import { DepInjectionDemoModule } from './example/dep-injection/dep-injection.module';
 import { RxjsDemoModule } from './example/rxjs/rxjs.module';
 import { ReduxDemoModule } from './example/redux/redux.module';
-
+import { ComponentDemoModule } from './example/component/component.module';
 
 //component
 import { StompModule } from './component/stompjs/stomp.module';
+import { TabModule } from './component/tab/tab.module';
 
 @NgModule({
     imports: [
@@ -39,8 +40,10 @@ import { StompModule } from './component/stompjs/stomp.module';
         DepInjectionDemoModule,
         RxjsDemoModule,
         ReduxDemoModule,
+        ComponentDemoModule,
         //component
-        StompModule
+        StompModule,
+        TabModule
     ],
     declarations: [
         AppComponent
