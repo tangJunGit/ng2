@@ -10,12 +10,11 @@ const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin');
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 
 const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
-const METADATA = webpackMerge(commonConfig({env: ENV}).metadata, {
+const METADATA = {
   host: 'localhost',
   port: 3000,
   ENV: ENV,
-});
-
+};
 
 module.exports = function (options) {
   return webpackMerge(commonConfig({env: ENV}), {
@@ -25,14 +24,14 @@ module.exports = function (options) {
     output: {
 
       path: helpers.root('dist'),
-      filename: '[name].bundle.js',
-      sourceMapFilename: '[name].map',
+      filename: '[name].[hash].js',
+      sourceMapFilename: '[name].[hash].map',
       chunkFilename: '[id].chunk.js',
 
     },
 
     plugins: [
-
+      //定义变量
       new DefinePlugin({
         'process.env': {
           'ENV': JSON.stringify(METADATA.ENV),
@@ -40,8 +39,10 @@ module.exports = function (options) {
         }
       }),
 
+      // 实验
       new NamedModulesPlugin(),
 
+      // 实验
       new LoaderOptionsPlugin({
         debug: true,
         options: {
@@ -64,6 +65,7 @@ module.exports = function (options) {
         aggregateTimeout: 300,
         poll: 1000
       },
+      contentBase: "src/",
       outputPath: helpers.root('dist')
     },
 

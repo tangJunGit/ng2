@@ -10,7 +10,7 @@
   "author": "tangjun <tj_910601@163.com>",
   "scripts": {
     "start": "npm run server:dev",
-    "server:dev": "webpack-dev-server --config config/webpack.dev.js --progress --profile --watch --content-base src/"
+    "server:dev": "webpack-dev-server --config config/webpack.dev.js --progress --profile --watch"
   },
   "license": "ISC",
   "dependencies": {
