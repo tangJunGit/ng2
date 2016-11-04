@@ -1,69 +1,108 @@
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var helpers = require('./helpers');
+const webpack = require('webpack');
+const helpers = require('./helpers');
 
-module.exports = {
-  entry: {
-    'polyfills': './src/polyfills.ts',
-    'vendor': './src/vendor.ts',
-    'app': './src/main.ts'
-  },
+/*
+ * Webpack Plugins
+ */
+const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
+const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
+const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
 
-  resolve: {
-    extensions: ['', '.js', '.ts', '.json']
-  },
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 
-  //stomp
-  node: {
-    net: 'empty',
-    tls: 'empty',
-    dns: 'empty'
-  },
 
-  module: {
-     preLoaders: [
-       //stomp
-        { 
-          test: /\.json$/, 
-          loader: 'json'
-        }      
-    ],
-    loaders: [
-      {
-        test: /\.ts$/,
-        loaders: ['awesome-typescript-loader', 'angular2-template-loader']
-      },
-      {
-        test: /\.html$/,
-        loader: 'html'
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
-        loader: 'url?limit=8192&name=assets/[name].[hash].[ext]'
-      },
-      {
-        test: /\.css$/,
-        exclude: helpers.root('src', 'app'),
-        loader: ExtractTextPlugin.extract('style', 'css?sourceMap')
-      },
-      {
-        test: /\.css$/,
-        include: helpers.root('src', 'app'),
-        loader: 'raw'
-      }
-    ]
-  },
-
-  plugins: [
-    new webpack.optimize.CommonsChunkPlugin({
-      name: ['app', 'vendor', 'polyfills'],
-      minChunks: Infinity
-    }),
-
-    new HtmlWebpackPlugin({
-      favicon: 'resource/favicon.ico',     
-      template: 'src/index.html'
-    })
-  ]
+const METADATA = {
+  title: 'Angular2 demo',
+  baseUrl: '/',
 };
+
+module.exports = function (options) {
+  return {
+    entry: {
+
+      'polyfills': './src/polyfills.ts',
+      'vendor': './src/vendor.ts',
+      'main': './src/main.ts'
+
+    },
+
+    resolve: {
+      extensions: ['.ts', '.js', '.json'],
+      modules: [helpers.root('src'), 'node_modules'],
+
+    },
+    module: {
+      rules: [
+        {
+          test: /\.ts$/,
+          loaders: [
+            'awesome-typescript-loader',
+            'angular2-template-loader'
+          ],
+          exclude: [/\.(spec|e2e)\.ts$/]
+        },
+        {
+          test: /\.json$/,
+          loader: 'json-loader'
+        },
+        {
+          test: /\.css$/,
+          loaders: ['to-string-loader', 'css-loader']
+        },
+        {
+          test: /\.html$/,
+          loader: 'raw-loader',
+          exclude: [helpers.root('src/index.html')]
+        },
+        {
+          test: /\.(jpg|png|gif)$/,
+          loader: 'file?name=assets/[name].[ext]'
+        },
+
+      ],
+
+    },
+
+    plugins: [
+     
+      new ForkCheckerPlugin(),
+     
+      new CommonsChunkPlugin({
+        name: ['polyfills', 'vendor'].reverse()
+      }),
+
+      new ContextReplacementPlugin(
+        /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
+        helpers.root('src') 
+      ),
+
+      new HtmlWebpackPlugin({
+        favicon: 'src/app/assets/favicon.ico',  
+        template: 'src/index.html',
+        title: METADATA.title,
+        chunksSortMode: 'dependency',
+        metadata: METADATA,
+        inject: 'head'
+      }),
+
+      new ScriptExtHtmlWebpackPlugin({
+        defaultAttribute: 'defer'
+      }),
+
+      new LoaderOptionsPlugin({}),
+
+    ],
+
+    node: {
+      global: true,
+      crypto: 'empty',
+      process: true,
+      module: false,
+      clearImmediate: false,
+      setImmediate: false
+    }
+
+  };
+}

@@ -1,9 +1,16 @@
 <html>
   <head>
-    <base href="/ng2/">
-    <title>Angular2 demo</title>
-    <meta charset="UTF-8">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="<%= htmlWebpackPlugin.options.title %>">
+
+    <!-- base url -->
+    <base href="<%= htmlWebpackPlugin.options.metadata.baseUrl %>">
+
     <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
   </head>  
   <body>

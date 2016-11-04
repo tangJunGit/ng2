@@ -1,24 +1,80 @@
-var webpackMerge = require('webpack-merge');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var commonConfig = require('./webpack.common.js');
-var helpers = require('./helpers');
+const helpers = require('./helpers');
+const webpackMerge = require('webpack-merge'); 
+const commonConfig = require('./webpack.common.js');
 
-module.exports = webpackMerge(commonConfig, {
-  devtool: 'cheap-module-eval-source-map',
+/**
+ * Webpack Plugins
+ */
+const DefinePlugin = require('webpack/lib/DefinePlugin');
+const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin');
+const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 
-  output: {
-    path: helpers.root('dist'),
-    publicPath: '/',
-    filename: '[name].js',
-    chunkFilename: '[id].chunk.js'
-  },
-
-  plugins: [
-    new ExtractTextPlugin('[name].css')
-  ],
-
-  devServer: {
-    historyApiFallback: true,
-    stats: 'minimal'
-  }
+const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
+const METADATA = webpackMerge(commonConfig({env: ENV}).metadata, {
+  host: 'localhost',
+  port: 3000,
+  ENV: ENV,
 });
+
+
+module.exports = function (options) {
+  return webpackMerge(commonConfig({env: ENV}), {
+
+    devtool: 'cheap-module-source-map',
+
+    output: {
+
+      path: helpers.root('dist'),
+      filename: '[name].bundle.js',
+      sourceMapFilename: '[name].map',
+      chunkFilename: '[id].chunk.js',
+
+    },
+
+    plugins: [
+
+      new DefinePlugin({
+        'process.env': {
+          'ENV': JSON.stringify(METADATA.ENV),
+          'NODE_ENV': JSON.stringify(METADATA.ENV),
+        }
+      }),
+
+      new NamedModulesPlugin(),
+
+      new LoaderOptionsPlugin({
+        debug: true,
+        options: {
+          tslint: {
+            emitErrors: false,
+            failOnHint: false,
+            resourcePath: 'src'
+          },
+
+        }
+      }),
+
+    ],
+
+    devServer: {
+      port: METADATA.port,
+      host: METADATA.host,
+      historyApiFallback: true,
+      watchOptions: {
+        aggregateTimeout: 300,
+        poll: 1000
+      },
+      outputPath: helpers.root('dist')
+    },
+
+    node: {
+      global: true,
+      crypto: 'empty',
+      process: true,
+      module: false,
+      clearImmediate: false,
+      setImmediate: false
+    }
+
+  });
+}
