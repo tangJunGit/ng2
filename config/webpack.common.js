@@ -79,7 +79,7 @@ module.exports = function (options) {
       ),
 
       new HtmlWebpackPlugin({
-        favicon: 'src/app/assets/favicon.ico',  
+        favicon: 'src/assets/favicon.ico',  
         template: 'src/index.html',
         title: METADATA.title,
         chunksSortMode: 'dependency',
