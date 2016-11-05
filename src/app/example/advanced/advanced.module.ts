@@ -2,14 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AdvancedDemoComponent }   from './advanced.component';
-import { componentRouting } from './advanced.routing';
+import { AdvancedRoutingModule } from './advanced.routes';
 import { PopupDirective } from './popup.directive';
 import { MessageComponent } from './transclusion';
 import { TabComponent, TabsetComponent } from './tab.component';
 
 @NgModule({
     imports: [
-        componentRouting,
+        AdvancedRoutingModule,
         CommonModule
     ],
     exports: [],

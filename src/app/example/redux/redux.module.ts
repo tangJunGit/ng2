@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 
 import { ReduxComponent }   from './redux.component';
-import { reduxRouting } from './redux.routing';
+import { ReduxRoutingModule } from './redux.routes';
 
 @NgModule({
     imports: [
-        reduxRouting
+        ReduxRoutingModule
     ],
     exports: [],
     declarations: [

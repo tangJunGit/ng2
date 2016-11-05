@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { tabRouting } from './tab.routing';
+import { TabRoutingModule } from './tab.routes';
 import { TabDemoComponent }   from './tab-demo.component';
 import { TabComponent, TabsetComponent }   from './tab.component';
 
 @NgModule({
     imports: [
         CommonModule,
-        tabRouting
+        TabRoutingModule
     ],
     exports: [],
     declarations: [

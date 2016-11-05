@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 
-import { depInjectionRouting } from './dep-injection.routing';
+import { DepInjectionRoutingModule } from './dep-injection.routes';
 import { DepInjectionComponent }   from './dep-injection.component';
 
 
 @NgModule({
     imports: [
-        depInjectionRouting
+        DepInjectionRoutingModule
     ],
     exports: [],
     declarations: [

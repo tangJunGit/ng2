@@ -3,14 +3,14 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { PipeComponent }   from './pipe.component';
-import { pipeRouting } from './pipe.routing';
+import { PipeRoutingModule } from './pipe.routes';
 import { ExponentialStrengthPipe } from './exponential.pipe';
 
 @NgModule({
     imports: [
         FormsModule,
         CommonModule,
-        pipeRouting 
+        PipeRoutingModule 
     ],
     exports: [],
     declarations: [

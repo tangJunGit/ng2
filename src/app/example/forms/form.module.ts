@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
  
-import { fromRouting } from './form.routing';
+import { FormRoutingModule } from './form.routes';
 import { FormComponent } from './form.component';
 import { FormBuilderComponent }   from './form-builder.component';
 import { ValidationComponent } from './validation.component';
@@ -10,7 +10,7 @@ import { ValidationComponent } from './validation.component';
     imports: [
         FormsModule,
         ReactiveFormsModule,
-        fromRouting
+        FormRoutingModule
     ],
     exports: [],
     declarations: [

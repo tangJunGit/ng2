@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 
 import { DirectiveComponent }   from './directive.component';
-import { directiveRouting } from './directive.routing';
+import { DirectiveRoutingModule } from './directive.routes';
 import { HighlightDirective } from './highlight.directive'; 
 
 @NgModule({
     imports: [
-        directiveRouting
+        DirectiveRoutingModule
     ],
     exports: [],
     declarations: [

@@ -3,7 +3,7 @@ import { BrowserModule, Title } from '@angular/platform-browser';    // Title服
 import { HttpModule } from '@angular/http';
 import { LocationStrategy, HashLocationStrategy, APP_BASE_HREF } from '@angular/common';
 
-import { routing } from './app.routing';
+import { AppRoutingModule } from './app.routes';
 import { AppComponent } from './app.component';
 
 //example
@@ -28,7 +28,7 @@ import { TabModule } from './component/tab/tab.module';
     imports: [
         BrowserModule,
         HttpModule,
-        routing,
+        AppRoutingModule,
         IndexModule,
         FormDemoModule, 
         HttpDemoModule,
@@ -42,7 +42,7 @@ import { TabModule } from './component/tab/tab.module';
         ReduxDemoModule,
         AdvancedDemoModule,
         StompModule,
-        TabModule
+        TabModule,
     ],
     declarations: [
         AppComponent
@@ -50,7 +50,7 @@ import { TabModule } from './component/tab/tab.module';
     providers: [
         Title,
         { provide: LocationStrategy, useClass: HashLocationStrategy },
-        { provide: APP_BASE_HREF, useValue: '/demo/' } ,
+        { provide: APP_BASE_HREF, useValue: '/' } ,
     ],
     bootstrap: [
         AppComponent

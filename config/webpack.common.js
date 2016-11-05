@@ -1,15 +1,15 @@
 const webpack = require('webpack');
 const helpers = require('./helpers');
-
 /*
  * Webpack Plugins
  */
 const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
 const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
-
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 
 
 const METADATA = {
@@ -38,7 +38,8 @@ module.exports = function (options) {
           test: /\.ts$/,
           loaders: [
             'awesome-typescript-loader',    // 类似ts-loader, babel
-            'angular2-template-loader'    //  templates and stylesheets into angular components.
+            'angular2-template-loader',    //  templates and stylesheets into angular components.
+            'angular2-load-children-loader'    //懒加载
           ],
           exclude: [/\.(spec|e2e)\.ts$/]
         },
@@ -56,14 +57,10 @@ module.exports = function (options) {
           exclude: [helpers.root('src/index.html')]
         },
         {
-          test: /\.(png|jpe?g|gif|ico)$/,
-          loader: 'url?name=assets/[name].[hash].[ext]&limit=10000'    // 小于10kb，则转成一个DataUrl
+          test: /\.(png|jpe?g|gif|ico)$/,     
+          loader: 'file-loader' 
         },
-        {
-          test: /\.(svg|woff|woff2|ttf|eot)$/,
-          loader: 'file?name=assets/[name].[hash].[ext]'
-        },
-      ],
+      ]
 
     },
 
@@ -82,6 +79,18 @@ module.exports = function (options) {
         helpers.root('src') 
       ),
 
+      //复制文件与文件夹
+      new CopyWebpackPlugin([
+        {
+          from: 'src/assets',
+          to: 'assets',
+        }, 
+        {
+          from: 'src/mock',
+          to: 'mock',
+        }
+      ]),
+
       // 通过 webpack bundles 简化了 html 页面
       new HtmlWebpackPlugin({
         favicon: 'src/assets/favicon.ico',  
@@ -96,6 +105,8 @@ module.exports = function (options) {
       new ScriptExtHtmlWebpackPlugin({
         defaultAttribute: 'defer'
       }),
+
+      new LoaderOptionsPlugin({}),
 
     ],
 
