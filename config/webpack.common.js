@@ -9,7 +9,6 @@ const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 
 
@@ -34,7 +33,7 @@ module.exports = function (options) {
 
     },
     module: {
-      loaders: [
+      rules: [
         {
           test: /\.ts$/,
           loaders: [
@@ -98,9 +97,6 @@ module.exports = function (options) {
         defaultAttribute: 'defer'
       }),
 
-      // 实验
-      new LoaderOptionsPlugin({}),
-
     ],
 
     node: {
@@ -109,7 +105,8 @@ module.exports = function (options) {
       process: true,
       module: false,
       clearImmediate: false,
-      setImmediate: false
+      setImmediate: false,
+      net: 'empty',    // stomp
     }
 
   };

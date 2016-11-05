@@ -1,6 +1,6 @@
 {
-    "host": "10.9.42.202",
-    "port": "29298",
+    "host": "103.245.129.20",
+    "port": "8088",
     "publish": "/terminals",
     "subscribe": "/topic/terminals",
     "ws": "http",

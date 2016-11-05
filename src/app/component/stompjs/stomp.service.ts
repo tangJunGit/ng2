@@ -43,7 +43,7 @@ export class StompService {
      * @memberOf StompService
      */
     creat(imei?: string[]){
-        let socket = new SockJS(`${this.config.ws}://${this.config.host}:${this.config.port}/${this.config.publish}`);
+        let socket = new SockJS(`${this.config.ws}://${this.config.host}:${this.config.port}${this.config.publish}`);
 
         this.stompClient = Stomp.over(socket, undefined, {protocols_whitelist: ['websocket']});
         this.stompClient.connect(this.config.headers, (frame: any) => {

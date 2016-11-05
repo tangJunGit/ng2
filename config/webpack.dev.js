@@ -6,8 +6,6 @@ const commonConfig = require('./webpack.common.js');
  * Webpack Plugins
  */
 const DefinePlugin = require('webpack/lib/DefinePlugin');
-const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin');
-const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 
 const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
 const METADATA = {
@@ -36,22 +34,6 @@ module.exports = function (options) {
         'process.env': {
           'ENV': JSON.stringify(METADATA.ENV),
           'NODE_ENV': JSON.stringify(METADATA.ENV),
-        }
-      }),
-
-      // 实验
-      new NamedModulesPlugin(),
-
-      // 实验
-      new LoaderOptionsPlugin({
-        debug: true,
-        options: {
-          tslint: {
-            emitErrors: false,
-            failOnHint: false,
-            resourcePath: 'src'
-          },
-
         }
       }),
 
