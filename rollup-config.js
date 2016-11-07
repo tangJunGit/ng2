@@ -5,7 +5,7 @@ import { uglify }      from 'rollup-plugin-uglify';
 
 export default {
   entry: 'src/main.aot.js',
-  dest: 'dist/app.build.js', 
+  dest: 'dist/app.build.js',    //输出一个文件
   sourceMap: true,
   sourceMapFile: 'dist/app.build.js.map',
   format: 'iife',
