@@ -14,14 +14,14 @@ import { ServiceCommonService } from './service-comm.service';
 })
 export class Service2CommonComponent implements OnInit, OnDestroy {
     @Input() astronaut: string;
-    mission = '<没有任务宣布>';
-    confirmed = false;
-    announced = false;
+    mission: string = '<没有任务宣布>';
+    confirmed: boolean = false;
+    announced: boolean = false;
     subscription: Subscription;
 
     constructor(private serviceCommonService: ServiceCommonService) {
         this.subscription = serviceCommonService.missionAnnounced$.subscribe(
-          mission => {
+          (mission: string) => {
             this.mission = mission;
             this.announced = true;
             this.confirmed = false;

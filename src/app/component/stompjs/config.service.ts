@@ -6,7 +6,7 @@ import { Config } from './stomp.model';
 
 @Injectable()
 export class ConfigService {
-    url: string = 'mock/stomp-config.json';
+    url: string = 'assets/mock/stomp-config.json';
 
     constructor(private http: Http) { }
 

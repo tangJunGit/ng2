@@ -15,13 +15,14 @@ import { ViewportService } from './viewport.service';
         ApiService,
         ViewportService,
         { provide: 'ApiServiceAlias', useExisting: ApiService },    // 声明 ApiServiceAlias 令牌
-        {
-            provide: 'SizeService',
-            useFactory: (viewport: any) => {   // 方法接收 ViewportService 对象
-                return viewport.determineService();
-            },
-            deps: [ViewportService]
-        },
+        // aot 编译错误
+        // {
+        //     provide: 'SizeService',
+        //     useFactory: (viewport: any) => {   // 方法接收 ViewportService 对象
+        //         return viewport.determineService();
+        //     },
+        //     deps: [ViewportService]
+        // },
         {
             provide: API_URL, 
             useValue: 'https://production-api.sample.com'
@@ -32,7 +33,8 @@ export class DepInjectionComponent implements OnInit {
 
     constructor(private apiService: ApiService,
                 @Inject('ApiServiceAlias') private aliasService: ApiService,     
-                @Inject('SizeService') private sizeService: any) { }
+                // @Inject('SizeService') private sizeService: any
+                ) { }
 
     ngOnInit() { 
         this.invokeApi();
@@ -41,7 +43,7 @@ export class DepInjectionComponent implements OnInit {
     //调用
     invokeApi(): void{
         this.aliasService.get();
-        this.sizeService.run();
+        //this.sizeService.run();
     }
     invokeApiService(): void{
         this.apiService.get();

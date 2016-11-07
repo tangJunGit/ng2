@@ -5,10 +5,7 @@ export var AppComponent = (function () {
     AppComponent.decorators = [
         { type: Component, args: [{
                     selector: 'my-app',
-                    //  template: `
-                    //      <router-outlet></router-outlet>
-                    //   `
-                    template: '222222'
+                    template: "\n         <router-outlet></router-outlet>\n      "
                 },] },
     ];
     /** @nocollapse */

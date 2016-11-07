@@ -3,20 +3,20 @@ import { BrowserModule, Title } from '@angular/platform-browser';    // Title服
 import { HttpModule } from '@angular/http';
 import { LocationStrategy, HashLocationStrategy, APP_BASE_HREF } from '@angular/common';
 
-//import { AppRoutingModule } from './app.routes';
+import { AppRoutingModule } from './app.routes';
 import { AppComponent } from './app.component';
 
 //example
-// import { IndexModule } from './index/index.module';
-// import { FormDemoModule } from './example/forms/form.module';
+import { IndexModule } from './index/index.module';
+import { FormDemoModule } from './example/forms/form.module';
 // import { HttpDemoModule } from './example/http/http.module';
 // import { RouteDemoModule } from './example/route/route.module';
 // import { AuthDemoModule } from './example/auth/auth.module';
-// import { DirectiveDemoModule } from './example/directive/directive.module';
-// import { PipeDemoModule } from './example/pipe/pipe.module';
-// import { CommunicationDemoModule } from './example/communication/comm.module';
-// import { DepInjectionDemoModule } from './example/dep-injection/dep-injection.module';
-// import { RxjsDemoModule } from './example/rxjs/rxjs.module';
+import { DirectiveDemoModule } from './example/directive/directive.module';
+import { PipeDemoModule } from './example/pipe/pipe.module';
+import { CommunicationDemoModule } from './example/communication/comm.module';
+import { DepInjectionDemoModule } from './example/dep-injection/dep-injection.module';
+import { RxjsDemoModule } from './example/rxjs/rxjs.module';
 // import { ReduxDemoModule } from './example/redux/redux.module';
 // import { AdvancedDemoModule } from './example/advanced/advanced.module';
 
@@ -28,17 +28,17 @@ import { AppComponent } from './app.component';
     imports: [
         BrowserModule,
         HttpModule,
-     //   AppRoutingModule,
-        // IndexModule,
-        // FormDemoModule, 
+        AppRoutingModule,
+        IndexModule,
+        FormDemoModule, 
         // HttpDemoModule,
         // RouteDemoModule,
         // AuthDemoModule,
-        // DirectiveDemoModule,
-        // PipeDemoModule, 
-        // CommunicationDemoModule,
-        // DepInjectionDemoModule,
-        // RxjsDemoModule,
+        DirectiveDemoModule,
+        PipeDemoModule, 
+        CommunicationDemoModule,
+        DepInjectionDemoModule,
+        RxjsDemoModule,
         // ReduxDemoModule,
         // AdvancedDemoModule,
         // StompModule,

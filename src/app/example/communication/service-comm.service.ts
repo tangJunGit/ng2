@@ -5,12 +5,12 @@ import { Subject }    from 'rxjs/Subject';
 export class ServiceCommonService {
 
   // Observable string sources
-  private missionAnnouncedSource = new Subject<string>();
-  private missionConfirmedSource = new Subject<string>();
+  private missionAnnouncedSource: any = new Subject<string>();
+  private missionConfirmedSource: any = new Subject<string>();
 
   // Observable string streams
-  missionAnnounced$ = this.missionAnnouncedSource.asObservable();
-  missionConfirmed$ = this.missionConfirmedSource.asObservable();
+  missionAnnounced$: any = this.missionAnnouncedSource.asObservable();
+  missionConfirmed$: any = this.missionConfirmedSource.asObservable();
 
   // Service message commands
   announceMission(mission: string) {

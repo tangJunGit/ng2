@@ -15,14 +15,14 @@ import { ServiceCommonService } from './service-comm.service';
     `
 })
 export class Service1CommonComponent implements OnInit {
-    astronauts = ['杨利伟','景海鹏', '陈冬'];
+    astronauts: string[] = ['杨利伟','景海鹏', '陈冬'];
     history: string[] = [];
-    missions = ['飞向月球!','飞向火星!'];
+    missions: string[] = ['飞向月球!','飞向火星!'];
     nextMission = 0;
     
     constructor(private serviceCommonService: ServiceCommonService) { 
         serviceCommonService.missionConfirmed$.subscribe(
-          astronaut => {
+          (astronaut: string) => {
             this.history.push(`${astronaut} 已确认任务`);
           });
     }

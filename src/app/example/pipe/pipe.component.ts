@@ -12,10 +12,10 @@ import { Component, OnInit } from '@angular/core';
     `
 })
 export class PipeComponent implements OnInit {
-    birthday = new Date(2016, 10, 1);
+    birthday: Date = new Date(2016, 10, 1);
 
-    power = 5;
-    factor = 1;
+    power: number = 5;
+    factor: number = 1;
 
     constructor() { }
 

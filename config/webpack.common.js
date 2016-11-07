@@ -85,16 +85,12 @@ module.exports = function (options) {
         {
           from: 'src/assets',
           to: 'assets',
-        }, 
-        {
-          from: 'src/mock',
-          to: 'mock',
         }
       ]),
 
       // 通过 webpack bundles 简化了 html 页面
       new HtmlWebpackPlugin({
-        favicon        : 'src/assets/favicon.ico',  
+        favicon        : 'src/assets/images/favicon.ico',  
         template       : 'src/index.html',
         title          : METADATA.title,
         chunksSortMode : 'dependency',

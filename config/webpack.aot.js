@@ -79,7 +79,7 @@ module.exports = function (options) {
       }),
       
       new HtmlWebpackPlugin({
-        favicon       : 'src/assets/favicon.ico',  
+        favicon       : 'src/assets/images/favicon.ico',  
         template      : 'src/index.html',
         title         : METADATA.title,
         chunksSortMode: 'dependency',
@@ -91,10 +91,6 @@ module.exports = function (options) {
         {
           from: 'src/assets',
           to: 'assets',
-        }, 
-        {
-          from: 'src/mock',
-          to: 'mock',
         },
         {
           from: 'node_modules/core-js/client/shim.min.js'

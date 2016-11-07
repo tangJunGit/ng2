@@ -2,10 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'my-app',
-    //  template: `
-    //      <router-outlet></router-outlet>
-    //   `
-    template: '222222'
-   
+     template: `
+         <router-outlet></router-outlet>
+      `
 })
 export class AppComponent { }
