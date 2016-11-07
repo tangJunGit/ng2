@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { SearchResult } from './search-result';
-var loadingUrl = require('./loading.jpg');
 
 @Component({
     selector: 'youtube-search',
@@ -9,7 +8,7 @@ var loadingUrl = require('./loading.jpg');
         <div class='container'>
             <div class="page-header">
                 <h1>YouTube Search
-                    <img style="width: 50px;" *ngIf="loading" src='${loadingUrl}' />
+                    <img style="width: 50px;" *ngIf="loading" src='loadingUrl' />
                 </h1>
             </div>
         
@@ -26,6 +25,8 @@ var loadingUrl = require('./loading.jpg');
     `
 }) 
 export class YoutubeSearchDemoComponent implements OnInit {
+    loading: any;
+    loadingUrl: string = require('./loading.jpg');
     results: SearchResult[];
 
     constructor() { }

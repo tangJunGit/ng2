@@ -16,8 +16,10 @@ npm run build:prod    // production
 **通过 Aot 编译项目**
 
 npm run ngc
-npm run rollup    // rollup
 npm run build:aot
+
+**通过 rollup 编译项目**
+npm run rollup    
 
 **启动打包服务**
 

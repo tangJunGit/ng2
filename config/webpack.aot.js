@@ -139,7 +139,8 @@ module.exports = function (options) {
       process       : false,
       module        : false,
       clearImmediate: false,
-      setImmediate  : false
+      setImmediate  : false,
+      net: 'empty',    // stomp
     }
     
   };

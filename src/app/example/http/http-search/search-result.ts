@@ -1,14 +1,13 @@
-export interface SearchResult extends id, snippet{
+export interface SearchResult{
     title: string; 
-}
-
-interface id{
-    videoId: string;
-    kind: string;
-}
-
-interface snippet{
-    description: string;
-    thumbnails: Object;
-    videoUrl: Object;
+    id: {
+        videoId: string;
+        kind: string;
+    };
+    snippet: {
+        title: string;
+        description: string;
+        thumbnails: any;
+        videoUrl: any;
+    };
 }
