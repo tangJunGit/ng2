@@ -23,10 +23,12 @@ module.exports = function (env) {
     devtool: 'source-map',
 
     output: {
+
         path: helpers.root('dist'),
         filename: '[name].[chunkhash].bundle.js',
         sourceMapFilename: '[name].[chunkhash].bundle.map',
         chunkFilename: '[id].[chunkhash].chunk.js'
+        
     },
 
     plugins: [
@@ -35,6 +37,7 @@ module.exports = function (env) {
 
         //定义变量
         new DefinePlugin({
+            'ENV' : JSON.stringify(METADATA.ENV),
             'process.env': {
               'ENV': JSON.stringify(METADATA.ENV),
               'NODE_ENV': JSON.stringify(METADATA.ENV),

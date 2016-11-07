@@ -15,5 +15,12 @@
   </head>  
   <body>
     <my-app class="theme-index">Loading...</my-app>
+
+    <% if (htmlWebpackPlugin.options.metadata.AOT) { %>
+    <!-- AOT -->
+    <script src="/shim.min.js"></script>
+    <script src="/zone.min.js"></script>
+    <script>window.module = 'aot';</script>
+    <% } %>
   </body>
 </html>

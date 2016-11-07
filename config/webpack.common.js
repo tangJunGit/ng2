@@ -22,12 +22,13 @@ module.exports = function (options) {
     entry: {
 
       'polyfills': './src/polyfills.ts',
-      'vendor': './src/vendor.ts',
-      'app': './src/main.ts'
+      'vendor'   : './src/vendor.ts',
+      'app'      : './src/main.ts'
 
     },
 
     resolve: {
+
       extensions: ['.ts', '.js', '.json'],     //用来解析 modules
       modules: [helpers.root('src'), 'node_modules'],   // 解析当前目录
 
@@ -93,12 +94,12 @@ module.exports = function (options) {
 
       // 通过 webpack bundles 简化了 html 页面
       new HtmlWebpackPlugin({
-        favicon: 'src/assets/favicon.ico',  
-        template: 'src/index.html',
-        title: METADATA.title,
-        chunksSortMode: 'dependency',
-        metadata: METADATA,
-        inject: 'head'
+        favicon        : 'src/assets/favicon.ico',  
+        template       : 'src/index.html',
+        title          : METADATA.title,
+        chunksSortMode : 'dependency',
+        metadata       : METADATA,
+        inject         : 'head'
       }),
 
       // 提高html-webpack-plugin功能（为了script 元素的async 与 defer 属性)

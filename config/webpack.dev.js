@@ -32,7 +32,8 @@ module.exports = function (options) {
 
     plugins: [
       //定义变量
-      new DefinePlugin({
+      new DefinePlugin({            
+        'ENV' : JSON.stringify(METADATA.ENV),
         'process.env': {
           'ENV': JSON.stringify(METADATA.ENV),
           'NODE_ENV': JSON.stringify(METADATA.ENV),
