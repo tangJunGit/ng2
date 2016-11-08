@@ -14,6 +14,7 @@
     "build:aot": "webpack --config config/webpack.aot.js  --progress --profile --bail",
     "build": "npm run build:prod",
     "clean:dist": "npm run rimraf dist",
+    "clean:ngc": "npm run rimraf ngfactory",
     "clean": "npm cache clean && npm run rimraf -- node_modules doc coverage dist",
     "ngc": "ngc -p tsconfig-aot.json",
     "prebuild:dev": "npm run clean:dist",

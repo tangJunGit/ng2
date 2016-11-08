@@ -17,7 +17,7 @@ import { PipeDemoModule } from './example/pipe/pipe.module';
 import { CommunicationDemoModule } from './example/communication/comm.module';
 import { DepInjectionDemoModule } from './example/dep-injection/dep-injection.module';
 import { RxjsDemoModule } from './example/rxjs/rxjs.module';
-// import { ReduxDemoModule } from './example/redux/redux.module';
+// import { ReduxDemoModule } from './example/redux/redux.module';    //aot 编译不过 redux
 import { AdvancedDemoModule } from './example/advanced/advanced.module';
 
 //component

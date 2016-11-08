@@ -1,10 +1,15 @@
 import { Component, Inject, ReflectiveInjector } from '@angular/core';
 import { ApiService, API_URL } from './api.service';
 import { ViewportService } from './viewport.service';
+// aot 编译的方法
+export function httpFactory(viewport) {
+    return viewport.determineService();
+}
 export var DepInjectionComponent = (function () {
-    function DepInjectionComponent(apiService, aliasService) {
+    function DepInjectionComponent(apiService, aliasService, sizeService) {
         this.apiService = apiService;
         this.aliasService = aliasService;
+        this.sizeService = sizeService;
     }
     DepInjectionComponent.prototype.ngOnInit = function () {
         this.invokeApi();
@@ -12,7 +17,7 @@ export var DepInjectionComponent = (function () {
     //调用
     DepInjectionComponent.prototype.invokeApi = function () {
         this.aliasService.get();
-        //this.sizeService.run();
+        this.sizeService.run();
     };
     DepInjectionComponent.prototype.invokeApiService = function () {
         this.apiService.get();
@@ -48,6 +53,12 @@ export var DepInjectionComponent = (function () {
                         //     },
                         //     deps: [ViewportService]
                         // },
+                        // aot 才能编译通过
+                        {
+                            provide: 'SizeService',
+                            useFactory: httpFactory,
+                            deps: [ViewportService]
+                        },
                         {
                             provide: API_URL,
                             useValue: 'https://production-api.sample.com'
@@ -59,6 +70,7 @@ export var DepInjectionComponent = (function () {
     DepInjectionComponent.ctorParameters = [
         { type: ApiService, },
         { type: ApiService, decorators: [{ type: Inject, args: ['ApiServiceAlias',] },] },
+        { type: undefined, decorators: [{ type: Inject, args: ['SizeService',] },] },
     ];
     return DepInjectionComponent;
 }());

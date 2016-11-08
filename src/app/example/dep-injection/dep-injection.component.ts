@@ -3,6 +3,11 @@ import { Component, OnInit, Inject, ReflectiveInjector } from '@angular/core';
 import { ApiService, API_URL } from './api.service';
 import { ViewportService } from './viewport.service';
 
+// aot 编译的方法
+export function httpFactory(viewport: any) {
+  return viewport.determineService();
+}
+
 @Component({
     selector: 'dep-injection',
     template: `
@@ -23,6 +28,13 @@ import { ViewportService } from './viewport.service';
         //     },
         //     deps: [ViewportService]
         // },
+
+        // aot 才能编译通过
+        {
+            provide: 'SizeService',
+            useFactory: httpFactory,
+            deps: [ViewportService]
+        },
         {
             provide: API_URL, 
             useValue: 'https://production-api.sample.com'
@@ -33,7 +45,7 @@ export class DepInjectionComponent implements OnInit {
 
     constructor(private apiService: ApiService,
                 @Inject('ApiServiceAlias') private aliasService: ApiService,     
-                // @Inject('SizeService') private sizeService: any
+                @Inject('SizeService') private sizeService: any
                 ) { }
 
     ngOnInit() { 
@@ -43,7 +55,7 @@ export class DepInjectionComponent implements OnInit {
     //调用
     invokeApi(): void{
         this.aliasService.get();
-        //this.sizeService.run();
+        this.sizeService.run();
     }
     invokeApiService(): void{
         this.apiService.get();
