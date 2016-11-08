@@ -8,7 +8,7 @@ import { SearchResult } from './search-result';
         <div class='container'>
             <div class="page-header">
                 <h1>YouTube Search
-                    <img style="width: 50px;" *ngIf="loading" src='loadingUrl' />
+                    <img style="width: 50px;" *ngIf="loading" [src]="loadingUrl" />
                 </h1>
             </div>
         

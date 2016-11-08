@@ -28,17 +28,19 @@ const AppStore = new OpaqueToken('App.store');
             </div>
         </div>
     `,
-    providers: [
-        {provide: AppStore, useValue: store}
-    ]
+    // providers: [
+    //     {provide: AppStore, useValue: store}
+    // ]
 })
 export class ReduxComponent implements OnInit {
     counter: number;
 
-    constructor(@Inject(AppStore) private store: Store<AppState>) { 
+    constructor(
+        // @Inject(AppStore) private store: Store<AppState>
+        ) { 
         // 监听store的变化
-        store.subscribe(() => this.readState());
-        this.readState();
+        // store.subscribe(() => this.readState());
+        // this.readState();
     }
 
     ngOnInit() {
@@ -46,15 +48,15 @@ export class ReduxComponent implements OnInit {
      }
 
     readState() {
-        let state: AppState = this.store.getState() as AppState;
-        this.counter = state.counter;
+        // let state: AppState = this.store.getState() as AppState;
+        // this.counter = state.counter;
     }
 
     increment() {
-        this.store.dispatch(CounterActions.increment());
+        // this.store.dispatch(CounterActions.increment());
     }
 
     decrement() {
-        this.store.dispatch(CounterActions.decrement());
+        // this.store.dispatch(CounterActions.decrement());
     }
 }

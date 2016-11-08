@@ -8,8 +8,8 @@ const routes: Routes = [
   { path: '**', component: IndexComponent },
   // 懒加载
   // {
-  // 	path: "loadchildren", 
-  // 	loadChildren: "es6-promise?,[name]!./example/loadchildren/loadchildren.module#LoadchildrenDemoModule" 
+  // 	path: "lazy", 
+  // 	loadChildren: "./example/lazy/lazy.module#LazyDemoModule" 
   // }
 ];
 
