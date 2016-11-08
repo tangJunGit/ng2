@@ -19,6 +19,7 @@ npm run ngc
 npm run build:aot
 
 **通过 rollup 编译项目**
+
 npm run rollup    
 
 **启动打包服务**
