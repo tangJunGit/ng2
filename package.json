@@ -21,7 +21,7 @@
     "prebuild:prod": "npm run clean:dist",
     "prebuild:aot": "npm run clean:dist",
     "rimraf": "rimraf",
-    "rollup": "rollup -c rollup-config.js",
+    "rollup": "rollup -c rollup.config.js",
     "start": "webpack-dev-server --progress --watch",
     "server": "http-server dist --cors",
     "test": "karma start",
