@@ -75,7 +75,7 @@ module.exports = function (options) {
       new WebpackMd5Hash(),
       
       new ngTools.AotPlugin({            // aot
-        tsConfigPath: './tsconfig-aot.json',
+        tsConfigPath: './tsconfig.aot.json',
         entryModule : 'src/app/app.module#AppModule',
         mainPath: 'src/main.ts'
       }),
