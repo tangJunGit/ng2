@@ -1,7 +1,7 @@
-var webpack = require('webpack');
-var webpackMerge = require('webpack-merge');
-var commonConfig = require('./webpack.common.js');
-var helpers = require('./helpers');
+const webpack = require('webpack');
+const webpackMerge = require('webpack-merge');
+const commonConfig = require('./webpack.common.js');
+const helpers = require('./helpers');
 
 /**
  * Webpack Plugins
@@ -29,6 +29,21 @@ module.exports = function (env) {
         sourceMapFilename: '[name].[chunkhash].bundle.map',
         chunkFilename: '[id].[chunkhash].chunk.js'
         
+    },
+
+    module: {
+      rules: [
+        {
+          test: /\.ts$/,
+          loaders: [
+            'awesome-typescript-loader',    // 类似ts-loader, babel
+            'angular2-template-loader',    //  templates and stylesheets into angular components.
+            'angular2-router-loader'    // 懒加载
+          ],
+          exclude: [/\.(spec|e2e)\.ts$/]
+        }
+      ]
+
     },
 
     plugins: [

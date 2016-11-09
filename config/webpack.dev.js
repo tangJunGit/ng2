@@ -30,6 +30,21 @@ module.exports = function (options) {
 
     },
 
+    module: {
+      rules: [
+        {
+          test: /\.ts$/,
+          loaders: [
+            'awesome-typescript-loader',    // 类似ts-loader, babel
+            'angular2-template-loader',    //  templates and stylesheets into angular components.
+            'angular2-router-loader'    // 懒加载
+          ],
+          exclude: [/\.(spec|e2e)\.ts$/]
+        }
+      ]
+
+    },
+
     plugins: [
       //定义变量
       new DefinePlugin({            

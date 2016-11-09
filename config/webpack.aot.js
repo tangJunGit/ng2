@@ -33,6 +33,7 @@ module.exports = function (options) {
       path: helpers.root('dist'),
       filename: '[name].[chunkhash].bundle.js',
       sourceMapFilename: '[name].[chunkhash].bundle.map',
+      chunkFilename: '[id].[chunkhash].chunk.js'
 
     },
     
@@ -73,9 +74,10 @@ module.exports = function (options) {
     plugins: [
       new WebpackMd5Hash(),
       
-      new ngTools.AotPlugin({
+      new ngTools.AotPlugin({            // aot
         tsConfigPath: './tsconfig-aot.json',
-        entryModule : './src/app/app.module#AppModule'
+        entryModule : 'src/app/app.module#AppModule',
+        mainPath: 'src/main.ts'
       }),
       
       new HtmlWebpackPlugin({

@@ -19,6 +19,7 @@ import { DepInjectionDemoModule } from './example/dep-injection/dep-injection.mo
 import { RxjsDemoModule } from './example/rxjs/rxjs.module';
 // import { ReduxDemoModule } from './example/redux/redux.module';    
 import { AdvancedDemoModule } from './example/advanced/advanced.module';
+// import { LazyDemoModule } from './example/lazy/lazy.module';     //需要 npm run ngc 到 ngfactory 文件夹中
 
 //component
 import { StompModule } from './component/stompjs/stomp.module';
@@ -43,6 +44,7 @@ import { TabModule } from './component/tab/tab.module';
         AdvancedDemoModule,
         StompModule,
         TabModule,
+        // LazyDemoModule
     ],
     declarations: [
         AppComponent

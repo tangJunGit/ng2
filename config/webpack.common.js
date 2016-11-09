@@ -36,14 +36,6 @@ module.exports = function (options) {
     module: {
       rules: [
         {
-          test: /\.ts$/,
-          loaders: [
-            'awesome-typescript-loader',    // 类似ts-loader, babel
-            'angular2-template-loader',    //  templates and stylesheets into angular components.
-          ],
-          exclude: [/\.(spec|e2e)\.ts$/]
-        },
-        {
           test: /\.json$/,
           loader: 'json-loader'
         },

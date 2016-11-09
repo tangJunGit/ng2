@@ -15,6 +15,7 @@ import { CommunicationDemoModule } from './example/communication/comm.module';
 import { DepInjectionDemoModule } from './example/dep-injection/dep-injection.module';
 import { RxjsDemoModule } from './example/rxjs/rxjs.module';
 import { AdvancedDemoModule } from './example/advanced/advanced.module';
+import { LazyDemoModule } from './example/lazy/lazy.module';
 import { StompModule } from './component/stompjs/stomp.module';
 import { TabModule } from './component/tab/tab.module';
 export var AppModule = (function () {
@@ -40,6 +41,7 @@ export var AppModule = (function () {
                         AdvancedDemoModule,
                         StompModule,
                         TabModule,
+                        LazyDemoModule
                     ],
                     declarations: [
                         AppComponent

@@ -6,12 +6,11 @@ export interface Config{
 	subscribe: string;
     ws: string;
     
-    headers?: Headers;
+    headers?: {
+        user?: string;
+    	pass?: string;
+    };
 }
 
-interface Headers{
-    user?: string;
-	pass?: string;
-}
 
 
