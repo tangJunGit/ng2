@@ -54,6 +54,7 @@
     "@types/selenium-webdriver": "2.44.29",
     "angular2-router-loader": "^0.3.3",
     "angular2-template-loader": "^0.4.0",
+    "angular2-webpack2-lazy-children-loader": "^1.0.1",
     "awesome-typescript-loader": "^2.2.4",
     "copy-webpack-plugin": "^4.0.0",
     "css-loader": "^0.25.0",
