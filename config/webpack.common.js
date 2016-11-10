@@ -3,6 +3,7 @@ const helpers = require('./helpers');
 /*
  * Webpack Plugins
  */
+const WebpackMd5Hash = require('webpack-md5-hash');
 const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
 const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
@@ -69,6 +70,10 @@ module.exports = function (options) {
     },
 
     plugins: [
+
+      // 取代标准webpack chunkhash md5
+      new WebpackMd5Hash(),
+
       //在一个单独的进程做类型检查,所以webpack不需要等待
       new ForkCheckerPlugin(),
      

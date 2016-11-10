@@ -9,9 +9,6 @@
     "removeComments": false,
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
-    "baseUrl": "./src",
-    "paths": {
-    },
     "lib": [
       "dom",
       "es6"
@@ -19,21 +16,13 @@
     "types": [
       "jasmine",
       "node",
-      "selenium-webdriver",
-      "source-map",
-      "uglify-js",
-      "webpack"
+      "selenium-webdriver"
     ]
   },
   "exclude": [
     "node_modules",
     "dist"
   ],
-  "awesomeTypescriptLoaderOptions": {
-    "forkChecker": true,
-    "useWebpackText": true
-  },
   "compileOnSave": false,
-  "buildOnSave": false,
-  "atom": { "rewriteTsconfig": false }
+  "buildOnSave": false
 }

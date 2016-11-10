@@ -8,7 +8,6 @@ const helpers = require('./helpers');
  */
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
-const WebpackMd5Hash = require('webpack-md5-hash');
 
 /**
  * ENV
@@ -17,6 +16,7 @@ const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
 
 module.exports = function (env) {
   return webpackMerge(commonConfig({env: ENV}), {
+    
     devtool: 'source-map',
 
     output: {
@@ -29,8 +29,6 @@ module.exports = function (env) {
     },
 
     plugins: [
-        // 取代标准webpack chunkhash md5
-        new WebpackMd5Hash(),
 
         //压缩
         new UglifyJsPlugin({

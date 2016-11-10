@@ -4,13 +4,13 @@ const ngTools = require('@ngtools/webpack');
 /**
  * Webpack Plugins
  */
-const DefinePlugin                  = require('webpack/lib/DefinePlugin');
-const NamedModulesPlugin            = require('webpack/lib/NamedModulesPlugin');
-const LoaderOptionsPlugin           = require('webpack/lib/LoaderOptionsPlugin');
-const UglifyJsPlugin                = require('webpack/lib/optimize/UglifyJsPlugin');
-const WebpackMd5Hash                = require('webpack-md5-hash');
-const HtmlWebpackPlugin             = require('html-webpack-plugin');
-const CopyWebpackPlugin             = require('copy-webpack-plugin');
+const DefinePlugin = require('webpack/lib/DefinePlugin');
+const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin');
+const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
+const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
+const WebpackMd5Hash = require('webpack-md5-hash');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const ENV = process.env.ENV = process.env.NODE_ENV = 'production';
 const METADATA = {
@@ -21,6 +21,7 @@ const METADATA = {
 };
 
 module.exports = function (options) {
+
   return {
 
     devtool: 'source-map',
@@ -48,7 +49,10 @@ module.exports = function (options) {
       rules: [
         {
           test   : /\.ts$/,
-          loader : ['@ngtools/webpack'],
+          loader : [
+            '@ngtools/webpack',
+            'angular2-webpack2-lazy-children-loader'
+          ],
           exclude: [/\.(spec|e2e)\.ts$/]
         },
         {
@@ -73,8 +77,8 @@ module.exports = function (options) {
     
     plugins: [
       new WebpackMd5Hash(),
-      
-      new ngTools.AotPlugin({            // aot
+
+      new ngTools.AotPlugin({           
         tsConfigPath: './tsconfig.aot.json',
         entryModule : 'src/app/app.module#AppModule',
         mainPath: 'src/main.ts'
@@ -103,7 +107,6 @@ module.exports = function (options) {
       ]),
       
       new DefinePlugin({            
-        'ENV' : JSON.stringify(METADATA.ENV),
         'process.env': {
           'ENV' : JSON.stringify(METADATA.ENV),
           'NODE_ENV': JSON.stringify(METADATA.ENV),
