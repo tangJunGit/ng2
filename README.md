@@ -10,8 +10,7 @@ npm start
 ```
 **通过 Jit 编译项目**
 ```bash
-npm run build:dev     // development
-npm run build:prod    // production
+npm run build
 ```
 **通过 Aot 编译项目**
 ```bash
