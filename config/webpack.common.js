@@ -10,11 +10,13 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
-
+const DefinePlugin = require('webpack/lib/DefinePlugin');
 
 const METADATA = {
   title: 'Angular2 demo',
   baseUrl: '/',
+  favicon: 'src/assets/images/favicon.ico',  
+  template: 'src/index.html',
 };
 
 module.exports = function (options) {
@@ -33,8 +35,18 @@ module.exports = function (options) {
       modules: [helpers.root('src'), 'node_modules'],   // 解析当前目录
 
     },
+    
     module: {
       rules: [
+        {
+          test: /\.ts$/,
+          loaders: [
+            'awesome-typescript-loader',    // 类似ts-loader, babel
+            'angular2-template-loader',    //  templates and stylesheets into angular components.
+            'angular2-router-loader'    // 懒加载
+          ],
+          exclude: [/\.(spec|e2e)\.ts$/]
+        },
         {
           test: /\.json$/,
           loader: 'json-loader'
@@ -81,8 +93,8 @@ module.exports = function (options) {
 
       // 通过 webpack bundles 简化了 html 页面
       new HtmlWebpackPlugin({
-        favicon        : 'src/assets/images/favicon.ico',  
-        template       : 'src/index.html',
+        favicon        : METADATA.favicon,
+        template       : METADATA.template,
         title          : METADATA.title,
         chunksSortMode : 'dependency',
         metadata       : METADATA,
@@ -93,8 +105,15 @@ module.exports = function (options) {
       new ScriptExtHtmlWebpackPlugin({
         defaultAttribute: 'defer'
       }),
-
-      new LoaderOptionsPlugin({}),
+      
+      //定义变量
+      new DefinePlugin({
+          'ENV' : JSON.stringify(options.ENV),
+          'process.env': {
+            'ENV': JSON.stringify(options.ENV),
+            'NODE_ENV': JSON.stringify(options.ENV),
+          }
+      }),
 
     ],
 

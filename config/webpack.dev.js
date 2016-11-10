@@ -9,6 +9,9 @@ const DefinePlugin = require('webpack/lib/DefinePlugin');
 const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin');
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 
+/**
+ * ENV
+ */
 const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
 const METADATA = {
   host: 'localhost',
@@ -30,31 +33,7 @@ module.exports = function (options) {
 
     },
 
-    module: {
-      rules: [
-        {
-          test: /\.ts$/,
-          loaders: [
-            'awesome-typescript-loader',    // 类似ts-loader, babel
-            'angular2-template-loader',    //  templates and stylesheets into angular components.
-            'angular2-router-loader'    // 懒加载
-          ],
-          exclude: [/\.(spec|e2e)\.ts$/]
-        }
-      ]
-
-    },
-
     plugins: [
-      //定义变量
-      new DefinePlugin({            
-        'ENV' : JSON.stringify(METADATA.ENV),
-        'process.env': {
-          'ENV': JSON.stringify(METADATA.ENV),
-          'NODE_ENV': JSON.stringify(METADATA.ENV),
-        }
-      }),
-
       new NamedModulesPlugin(),
 
       new LoaderOptionsPlugin({
@@ -88,15 +67,6 @@ module.exports = function (options) {
 //               secure: false  
 //           }  
 //       }
-    },
-
-    node: {
-      global: true,
-      crypto: 'empty',
-      process: true,
-      module: false,
-      clearImmediate: false,
-      setImmediate: false
     }
 
   });
