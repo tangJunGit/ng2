@@ -57,6 +57,10 @@ module.exports = function (options) {
           loaders: ['to-string-loader', 'css-loader']   // css-loader 读取 css 文件， to-string-loader 返回字符串
         },
         {
+          test: /\.scss$/,
+          loaders: ['to-string-loader', 'css-loader', "sass-loader"]
+        },
+        {
           test: /\.html$/,
           loader: 'raw-loader',               // 把文件内容作为字符串返回
           exclude: [helpers.root('src/index.html')]

@@ -64,6 +64,10 @@ module.exports = function (options) {
           loaders: ['to-string-loader', 'css-loader']
         }, 
         {
+          test: /\.scss$/,
+          loaders: ['to-string-loader', 'css-loader', "sass-loader"]
+        },
+        {
           test   : /\.html$/,
           loader : 'raw-loader',
           exclude: [helpers.root('src/index.html')]
