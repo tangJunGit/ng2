@@ -5,6 +5,6 @@ npm-debug.log
 /.idea
 /test
 /typings
-.vscode
+/.vscode
 /ngfactory
 /aot
