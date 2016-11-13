@@ -1,4 +1,3 @@
-//karma-test-shim 告诉 Karma 哪些文件需要预加载
 Error.stackTraceLimit = Infinity;
 
 require('core-js/es6');

@@ -1,37 +1,97 @@
-var helpers = require('./helpers');
+const helpers = require('./helpers');
 
-module.exports = {
-  devtool: 'inline-source-map',
+/**
+ * Webpack Plugins
+ */
+const DefinePlugin = require('webpack/lib/DefinePlugin');
+const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
+const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
 
-  resolve: {
-    extensions: ['', '.ts', '.js']
-  },
+const ENV = process.env.ENV = process.env.NODE_ENV = 'test';
 
-  module: {
-    loaders: [
-      {
-        test: /\.ts$/,
-        loaders: ['awesome-typescript-loader', 'angular2-template-loader']
-      },
-      {
-        test: /\.html$/,
-        loader: 'html'
+module.exports = function (options) {
+  return {
 
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
-        loader: 'null'
-      },
-      {
-        test: /\.css$/,
-        exclude: helpers.root('src', 'app'),
-        loader: 'null'
-      },
-      {
-        test: /\.css$/,
-        include: helpers.root('src', 'app'),
-        loader: 'raw'
-      }
-    ]
-  }
+    devtool: 'inline-source-map',
+
+    resolve: {
+
+      extensions: ['.ts', '.js'],
+
+      modules: [helpers.root('src'), 'node_modules'],
+
+    },
+
+    module: {
+
+      rules: [
+        {
+          test: /\.ts$/,
+          loader: ['awesome-typescript-loader', 'angular2-template-loader'],
+          exclude: [/\.e2e\.ts$/]
+        },
+        {
+          test: /\.json$/,
+          loader: 'json-loader'
+        },
+        {
+          test: /\.css$/,
+          loaders: ['to-string-loader', 'css-loader']
+        },
+        {
+          test: /\.scss$/,
+          loaders: ['to-string-loader', 'css-loader', 'sass-loader']
+        },
+        {
+          test: /\.html$/,
+          loader: 'raw-loader'
+        },
+        {
+          enforce: 'post',
+          test: /\.(js|ts)$/,
+          loader: 'istanbul-instrumenter-loader'
+        }
+
+      ]
+    },
+
+    plugins: [
+
+      new DefinePlugin({
+        'process.env': {
+          'ENV': JSON.stringify(ENV),
+          'NODE_ENV': JSON.stringify(ENV),
+        }
+      }),
+
+      new ContextReplacementPlugin(
+        /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
+        helpers.root('src') 
+      ),
+
+      new LoaderOptionsPlugin({
+        debug: true,
+        options: {
+          tslint: {
+            emitErrors: false,
+            failOnHint: false,
+            resourcePath: 'src'
+          },
+
+        }
+      }),
+
+    ],
+
+    node: {
+      global: true,
+      process: false,
+      crypto: 'empty',
+      module: false,
+      clearImmediate: false,
+      setImmediate: false,
+      net: 'empty',    
+    }
+
+  };
 }
