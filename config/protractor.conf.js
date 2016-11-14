@@ -1,3 +1,5 @@
+// http://localhost:4444/wd/hub
+
 require('ts-node/register');
 var helpers = require('./helpers');
 
@@ -5,8 +7,8 @@ exports.config = {
   baseUrl: 'http://localhost:3000/',
 
   specs: [
-    helpers.root('src/**/**.e2e.ts'),
-    helpers.root('src/**/*.e2e.ts')
+    helpers.root('tests/**/**.e2e.ts'),
+    helpers.root('tests/**/*.e2e.ts')
   ],
   exclude: [],
 
