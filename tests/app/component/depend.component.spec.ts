@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { WelcomeComponent } from './depend.component';
-import { UserService  }  from './service';
+import { UserService  }  from './user.service';
 
 let comp: WelcomeComponent;
 let fixture: ComponentFixture<WelcomeComponent>;
