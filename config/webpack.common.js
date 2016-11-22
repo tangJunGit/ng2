@@ -21,6 +21,7 @@ const METADATA = {
 };
 
 module.exports = function (options) {
+  if(options.env == 'production') METADATA.baseUrl = '/ng';   //产品需要
   return {
     entry: {
 
