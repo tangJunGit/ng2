@@ -18,9 +18,17 @@
       "node"
     ]
   },
+  "files": [
+    "./src/app/app.module.ts",
+    "./src/main.aot.ts"
+  ],
   "exclude": [
     "node_modules",
-    "dist"
+    "dist",
+    "src",
+    "./**/*.e2e.ts",
+    "./**/*.spec.ts",
+    "**/*.d.ts"
   ],
   "angularCompilerOptions": {
     "genDir": "ngfactory",

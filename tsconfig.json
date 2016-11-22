@@ -19,9 +19,16 @@
       "selenium-webdriver"
     ]
   },
+  "files": [
+    "./src/app/app.module.ts",
+    "./src/main.ts"
+  ],
   "exclude": [
     "node_modules",
-    "dist"
+    "dist",
+    "./**/*.e2e.ts",
+    "./**/*.spec.ts",
+    "**/*.d.ts"
   ],
   "compileOnSave": false,
   "buildOnSave": false

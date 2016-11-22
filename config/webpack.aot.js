@@ -15,7 +15,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ENV = process.env.ENV = process.env.NODE_ENV = 'production';
 const METADATA = {
   title: 'Angular2 demo',
-  baseUrl: '/',
+  baseUrl: '/ng2',
   ENV    : ENV,
   AOT    : true
 };

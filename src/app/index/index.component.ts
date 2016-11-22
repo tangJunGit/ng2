@@ -10,7 +10,8 @@ import { Component, OnInit } from '@angular/core';
             <my-theme [ngClass]="theme"></my-theme>
         </main>
     `,
-    styleUrls: ['./host.scss']
+    styleUrls: ['./host.css'],
+    // styleUrls: ['./host.scss']   // aot 没编译过
 })
 export class IndexComponent implements OnInit {
     theme: string = 'theme-blue';
