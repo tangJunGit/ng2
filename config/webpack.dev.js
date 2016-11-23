@@ -59,7 +59,7 @@ module.exports = function (options) {
         poll: 1000
       },
       contentBase: "src/",
-      outputPath: helpers.root('dist'),
+      // outputPath: helpers.root('dist'),
 //      代理
 //       proxy: {  
 //           '/youtube/*': {  
