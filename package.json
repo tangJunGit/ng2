@@ -17,6 +17,7 @@
     "clean": "npm cache clean && npm run rimraf -- node_modules doc coverage dist",
     "e2e": "npm run protractor",
     "ngc": "ngc -p tsconfig.aot.json",
+    "postinstall": "typings install",
     "prebuild:prod": "npm run clean:dist",
     "prebuild:aot": "npm run clean:dist",
     "pree2e": "npm run webdriver:update -- --standalone",
@@ -55,9 +56,6 @@
   },
   "devDependencies": {
     "@ngtools/webpack": "^1.1.4",
-    "@types/jasmine": "^2.2.34",
-    "@types/node": "^6.0.38",
-    "@types/selenium-webdriver": "2.44.29",
     "angular2-router-loader": "^0.3.3",
     "angular2-template-loader": "^0.4.0",
     "angular2-webpack2-lazy-children-loader": "^1.0.1",

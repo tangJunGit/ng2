@@ -8,28 +8,8 @@
     "experimentalDecorators": true,
     "removeComments": false,
     "noImplicitAny": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "lib": [
-      "dom",
-      "es6"
-    ],
-    "types": [
-      "jasmine",
-      "node",
-      "selenium-webdriver"
-    ]
+    "suppressImplicitAnyIndexErrors": true
   },
-  "files": [
-    "./src/app/app.module.ts",
-    "./src/main.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "./**/*.e2e.ts",
-    "./**/*.spec.ts",
-    "**/*.d.ts"
-  ],
   "compileOnSave": false,
   "buildOnSave": false
 }

@@ -9,27 +9,8 @@
     "removeComments": false,
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
-    "outDir": "./aot",
-    "lib": [
-      "dom",
-      "es6"
-    ],
-    "types": [
-      "node"
-    ]
+    "outDir": "./aot"
   },
-  "files": [
-    "./src/app/app.module.ts",
-    "./src/main.aot.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "src",
-    "./**/*.e2e.ts",
-    "./**/*.spec.ts",
-    "**/*.d.ts"
-  ],
   "angularCompilerOptions": {
     "genDir": "ngfactory",
     "skipMetadataEmit" : true
