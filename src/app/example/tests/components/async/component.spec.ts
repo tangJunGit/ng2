@@ -47,7 +47,7 @@ describe('TwainComponent', () => {
     });
 
     /**
-     * 异步方法一
+     * 异步测试程序方法一
      */
     it('should show quote after getQuote promise (async)', async(() => {
         fixture.detectChanges();
@@ -58,7 +58,7 @@ describe('TwainComponent', () => {
     }));
    
    /**
-     * 异步方法二
+     * 异步测试程序方法二
      */
    it('should show quote after getQuote promise (fakeAsync)', fakeAsync(() => {
         fixture.detectChanges();
