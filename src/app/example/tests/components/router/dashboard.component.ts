@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { HeroService } from './hero.service';
-import { Hero } from './hero.model';
+import { HeroService } from '../external/hero.service';
+import { Hero } from '../external/hero.model';
 
 @Component({
     selector: 'dashboard',
-    templateUrl: './dashboard.component.html'
+    template: `<dashboard-hero *ngFor="let hero of heroes"  [hero]="hero"  (selected)="gotoDetail($event)"></dashboard-hero>`
 })
+ 
 export class DashboardComponent implements OnInit {
-    heroes: Hero[];
+    heroes: Hero[] = [new Hero(42, 'Test Name')];
     constructor( private router: Router, private heroService: HeroService ) { }
 
     ngOnInit() { }
