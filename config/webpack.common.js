@@ -21,7 +21,7 @@ const METADATA = {
 };
 
 module.exports = function (options) {
-  if(options.env == 'production') METADATA.baseUrl = '/ng';   //产品需要
+  if(options.env == 'production') METADATA.baseUrl = '/ng2';   //产品需要
   return {
     entry: {
 

@@ -11,7 +11,14 @@ import { Component, OnInit } from '@angular/core';
         </main>
     `,
     styleUrls: ['./host.css'],
-    // styleUrls: ['./host.scss']   // aot 没编译过
+
+    /**
+     * aot 没编译过 scss, 路径不对
+     * “Cannot find module '../../../../src/app/index/host.scss.shim'”
+     * 
+     * 所以将编译到 ngfactory 文件放到 src 文件下是可行了
+     */
+    // styleUrls: ['./host.scss']   
 })
 export class IndexComponent implements OnInit {
     theme: string = 'theme-blue';
