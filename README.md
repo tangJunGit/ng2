@@ -5,6 +5,7 @@
 npm install
 
 # 启动服务
+# url: http://localhost:3000
 npm start
 
 # 通过 Jit 编译项目
@@ -18,6 +19,7 @@ npm run build:aot
 npm run rollup    
 
 # 打包后启动服务
+# url: http://localhost:8080
 npm run server
 
 # 测试
