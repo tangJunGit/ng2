@@ -3,12 +3,12 @@
 ### Component（组件）
 
 1. tab （选项卡）
-2. stompjs （WebSokect通信）
+2. stompjs （ WebSokect 通信）
 
 ### Example（例子）
 
 1. Form and FormBuilder （表单验证）
-2. http (http 请求)
+2. http ( http 请求)
 3. children router (多级路由)
 4. laLazyload router (懒加载路由)
 5. dependency injection （依赖注入）
