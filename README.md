@@ -9,8 +9,8 @@
 
 1. Form and FormBuilder （表单验证）
 2. http ( http 请求)
-3. children router (多级路由)
-4. laLazyload router (懒加载路由)
+3. children router （多级路由）
+4. laLazyload router （懒加载路由）
 5. dependency injection （依赖注入）
 6. RXJS 
 7. Redux
@@ -20,6 +20,7 @@
 11. Pipe （管道）
 
 ### npm scripts
+
 ```bash
 # 安装
 npm install
