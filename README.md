@@ -19,6 +19,7 @@
 10. Directive （指令）
 11. Pipe （管道）
 
+### npm scripts
 ```bash
 # 安装
 npm install
