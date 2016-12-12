@@ -23,27 +23,11 @@ import { Component, OnInit } from '@angular/core';
             This is the content of the message
         </div> 
         <hr />
-
-        <h2>Tab</h2>
-        <tabset>
-            <tab title="First tab">
-                This is the first tab
-            </tab>
-            <tab *ngFor="let tab of tabs" [title]="tab.title">{{ tab.content }}</tab>
-        </tabset>
-
     `
 })
 export class AdvancedDemoComponent implements OnInit {
-    tabs: any;
 
-    constructor() { 
-        this.tabs = [
-            { title: 'About', content: 'This is the About tab' },
-            { title: 'Blog', content: 'This is our blog' },
-            { title: 'Contact us', content: 'Contact us here' },
-        ];
-    }
+    constructor() { }
 
     ngOnInit() { }
 }

@@ -8,7 +8,8 @@ import { Component, OnInit, Input, AfterContentInit, ContentChildren, QueryList 
             <ng-content></ng-content>
           </div>
         </div>
-    `
+    `,
+    styleUrls: ['./tab.css']
 })
 export class TabComponent implements OnInit {
     @Input('title') title:string; 
@@ -28,7 +29,8 @@ export class TabComponent implements OnInit {
             </li>
         </ul>
         <ng-content></ng-content>
-    `
+    `,
+    styleUrls: ['./tabset.css']
 })
 export class TabsetComponent implements AfterContentInit {
     @ContentChildren(TabComponent) tabs: QueryList<TabComponent>;     // 获取 TabComponent

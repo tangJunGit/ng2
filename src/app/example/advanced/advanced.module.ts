@@ -5,7 +5,6 @@ import { AdvancedDemoComponent }   from './advanced.component';
 import { AdvancedRoutingModule } from './advanced.routes';
 import { PopupDirective } from './popup.directive';
 import { MessageComponent } from './transclusion';
-import { TabComponent, TabsetComponent } from './tab.component';
 
 @NgModule({
     imports: [
@@ -17,8 +16,6 @@ import { TabComponent, TabsetComponent } from './tab.component';
         AdvancedDemoComponent,
         PopupDirective,
         MessageComponent,
-        TabComponent,
-        TabsetComponent
     ],
     providers: [],
 })

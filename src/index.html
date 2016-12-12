@@ -1,7 +1,10 @@
 <html>
-  <head>
-    <title><%= htmlWebpackPlugin.options.title %></title>
-    
+
+<head>
+    <title>
+        <%= htmlWebpackPlugin.options.title %>
+    </title>
+
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,16 +14,21 @@
     <!-- base url -->
     <base href="<%= htmlWebpackPlugin.options.metadata.baseUrl %>">
 
-    <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  </head>  
-  <body>
+    <!--<link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+
+<body>
     <my-app class="theme-index">Loading...</my-app>
 
     <% if (htmlWebpackPlugin.options.metadata.AOT) { %>
-    <!-- AOT -->
-    <script src="/shim.min.js"></script>
-    <script src="/zone.min.js"></script>
-    <script>window.module = 'aot';</script>
-    <% } %>
-  </body>
+        <!-- AOT -->
+        <script src="/shim.min.js"></script>
+        <script src="/zone.min.js"></script>
+        <script>
+            window.module = 'aot';
+        </script>
+        <% } %>
+</body>
+
 </html>

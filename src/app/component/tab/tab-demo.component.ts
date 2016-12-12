@@ -14,9 +14,9 @@ export class TabDemoComponent implements OnInit {
 
     constructor() { 
         this.tabs = [
-            { title: 'First tab', content: 'This is first content' },
-            { title: 'Second tab', content: 'This is second content' },
-            { title: 'Third  tab', content: 'This is third content' },
+            { title: 'tab 1', content: '------内容： 11111111111------' },
+            { title: 'tab 2', content: '------内容： 222222222222------' },
+            { title: 'tab 3', content: '------内容： 3333333333333------' },
         ];
     }
 
