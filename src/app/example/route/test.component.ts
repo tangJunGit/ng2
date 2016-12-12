@@ -34,7 +34,6 @@ export class RouteTestComponent implements OnInit {
             }
         );
 
-        this.id2 = '3';
         
     }
 
@@ -46,7 +45,8 @@ export class RouteTestComponent implements OnInit {
         //     .then(_ => {
         //         alert("跳转前此处处理……");
         //     });
-
+        
+        this.id2 = '3';
 
         //相对路径  ../ 指子路由上一级   ./ 指当前
            this.router.navigate(['../', this.id2, {title: this.title, title2: this.title}], {relativeTo: this.route, queryParams: {query: "query",search:'search'}})   //  /route/1?query=query
