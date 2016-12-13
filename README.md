@@ -4,6 +4,8 @@
 
 1. tab （选项卡）
 2. stompjs （通信）
+3. collapse （折叠）
+4. accordion （手风琴）
 
 ### Example（例子）
 
