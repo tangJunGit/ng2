@@ -18,4 +18,4 @@ import { ConfigService } from './config.service';
         ConfigService
     ],
 })
-export class StompModule { }
+export class StompDemoModule { }

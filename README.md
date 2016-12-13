@@ -3,7 +3,7 @@
 ### Component（组件）
 
 1. tab （选项卡）
-2. stompjs （ WebSokect 通信）
+2. stompjs （通信）
 
 ### Example（例子）
 
