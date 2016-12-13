@@ -11,7 +11,12 @@ export class CollapseDirective  implements OnInit {
     constructor(private _el:ElementRef, private _renderer:Renderer) { }
 
     ngOnInit() { }
-
+    /**
+     * 判断是否显示或者隐藏
+     * 
+     * 
+     * @memberOf CollapseDirective
+     */
     toggle():void {
         if (this.isExpanded) {
             this.hide();
@@ -19,11 +24,21 @@ export class CollapseDirective  implements OnInit {
             this.show();
         }
     }
-
+    /**
+     * 显示
+     * 
+     * 
+     * @memberOf CollapseDirective
+     */
     show():void {
         this._renderer.setElementStyle(this._el.nativeElement, 'display', 'none');
     }
-
+    /**
+     * 隐藏
+     * 
+     * 
+     * @memberOf CollapseDirective
+     */
     hide():void {
         this._renderer.setElementStyle(this._el.nativeElement, 'display', 'block');
     }
