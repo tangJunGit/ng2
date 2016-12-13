@@ -25,6 +25,7 @@ import { AdvancedDemoModule } from './example/advanced/advanced.module';
 import { StompDemoModule } from './component/stompjs/stomp.module';
 import { TabDemoModule } from './component/tab/tab.module';
 import { AccordionDemoModule } from './component/accordion/accordion.module';
+import { CollapseDemoModule } from './component/collapse/collapse.module';
 
 @NgModule({
     imports: [
@@ -46,7 +47,8 @@ import { AccordionDemoModule } from './component/accordion/accordion.module';
         // LazyDemoModule,
         StompDemoModule,
         TabDemoModule,
-        AccordionDemoModule
+        AccordionDemoModule,
+        CollapseDemoModule
     ],
     declarations: [
         AppComponent
