@@ -12,7 +12,7 @@ import { Component, OnInit, Input, AfterContentInit, ContentChildren, QueryList 
     styleUrls: ['./tab.css']
 })
 export class TabComponent implements OnInit {
-    @Input('title') title:string; 
+    @Input('heading') heading:string; 
     active: boolean = false;    
 
     constructor() { }
@@ -25,7 +25,7 @@ export class TabComponent implements OnInit {
     template: `
         <ul class="nav nav-tabs">
             <li *ngFor="let tab of tabs" [class.active]="tab.active" (click)="setActive(tab)">
-                <a class="item">{{ tab.title }}</a>
+                <a class="item">{{ tab.heading }}</a>
             </li>
         </ul>
         <ng-content></ng-content>

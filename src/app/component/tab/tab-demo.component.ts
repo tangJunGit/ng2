@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
     template: `
         <h2>Tab</h2>
         <tabset>
-            <tab *ngFor="let tab of tabs" [title]="tab.title">{{ tab.content }}</tab>
+            <tab *ngFor="let tab of tabs" [heading]="tab.title">{{ tab?.content }}</tab>
         </tabset>
     `
 })
