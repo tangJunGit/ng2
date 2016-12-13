@@ -8,7 +8,9 @@ import { CollapseDirective } from './collapse.directive';
     imports: [
         CollapseRoutingModule
     ],
-    exports: [],
+    exports: [
+        CollapseDirective
+    ],
     declarations: [
         CollapseDemoComponent,
         CollapseDirective

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { CollapseDemoModule } from '../collapse/index';
 import { AccordionRoutingModule } from './accordion.routes';
 import { AccordionDemoComponent }   from './accordion-demo.component';
 import { AccordionComponent, AccordionGroupComponent } from './accordion.component';
@@ -8,7 +9,8 @@ import { AccordionComponent, AccordionGroupComponent } from './accordion.compone
 @NgModule({
     imports: [
         CommonModule,
-        AccordionRoutingModule
+        AccordionRoutingModule,
+        CollapseDemoModule
     ],
     exports: [],
     declarations: [
