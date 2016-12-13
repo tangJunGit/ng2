@@ -4,7 +4,7 @@ import { Component, OnInit, Input, AfterContentInit, ContentChildren, QueryList 
     selector: 'tab',
     template: `
         <div class="tab-content">
-          <div class="tab-pane fade in" [class.active]="active">
+          <div class="tab-pane" [class.active]="active">
             <ng-content></ng-content>
           </div>
         </div>
