@@ -17,13 +17,14 @@ import { PipeDemoModule } from './example/pipe/pipe.module';
 import { CommunicationDemoModule } from './example/communication/comm.module';
 import { DepInjectionDemoModule } from './example/dep-injection/dep-injection.module';
 import { RxjsDemoModule } from './example/rxjs/rxjs.module';
-// import { ReduxDemoModule } from './example/redux/redux.module';    
 import { AdvancedDemoModule } from './example/advanced/advanced.module';
+// import { ReduxDemoModule } from './example/redux/redux.module';    
 // import { LazyDemoModule } from './example/lazy/lazy.module';     
 
 //component
-import { StompModule } from './component/stompjs/stomp.module';
-import { TabModule } from './component/tab/tab.module';
+import { StompDemoModule } from './component/stompjs/stomp.module';
+import { TabDemoModule } from './component/tab/tab.module';
+import { AccordionDemoModule } from './component/accordion/accordion.module';
 
 @NgModule({
     imports: [
@@ -40,11 +41,12 @@ import { TabModule } from './component/tab/tab.module';
         CommunicationDemoModule,
         DepInjectionDemoModule,
         RxjsDemoModule,
-        // ReduxDemoModule,
         AdvancedDemoModule,
-        StompModule,
-        TabModule,
-        // LazyDemoModule
+        // ReduxDemoModule,
+        // LazyDemoModule,
+        StompDemoModule,
+        TabDemoModule,
+        AccordionDemoModule
     ],
     declarations: [
         AppComponent
