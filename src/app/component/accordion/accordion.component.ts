@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject, ContentChildren, QueryList, forwardRef } from '@angular/core';
 
 @Component({
     selector: 'accordion-group',
@@ -21,15 +21,26 @@ import { Component, OnInit, Input } from '@angular/core';
     styleUrls: ['./accordion-group.css']
 })
 export class AccordionGroupComponent implements OnInit {
-    isOpen: Boolean = true;
+    isOpen: Boolean;
     @Input() heading:string;
-    constructor() { }
+    
+    constructor(@Inject(forwardRef(() => AccordionComponent)) public accordion: AccordionComponent) { }
 
     ngOnInit() { }
-
-    toggleOpen(event:MouseEvent):any {
+    /**
+     * 判断点击对象是否隐藏或者显示
+     * 
+     * @param {MouseEvent} event
+     * 
+     * @memberOf AccordionGroupComponent
+     */
+    toggleOpen(event:MouseEvent):void {
         event.preventDefault();
         this.isOpen = !this.isOpen;
+        
+        // 如果需要折叠其他的，就调用 accordion.setOpen 方法
+        if(!this.accordion.closeOthers) return;
+        this.accordion.setOpen(this);
     }
 }
 
@@ -39,7 +50,25 @@ export class AccordionGroupComponent implements OnInit {
     template: `<ng-content></ng-content>`
 })
 export class AccordionComponent implements OnInit {
+    // 是否需要折叠其他的
+    @Input() closeOthers:boolean;
+
+    // 获取 AccordionGroupComponent
+    @ContentChildren(AccordionGroupComponent) AccordionGroup: QueryList<AccordionGroupComponent>;          
+
     constructor() { }
 
     ngOnInit() { }
+
+    /**
+     * 判断手风琴展开与折叠
+     * 
+     * @param {AccordionGroupComponent} group  当前的AccordionGroupComponent
+     * 
+     * @memberOf AccordionComponent
+     */
+    setOpen(group: AccordionGroupComponent) {   
+        this.AccordionGroup.toArray().forEach((t) => t.isOpen = false);
+        group.isOpen = true;
+    }
 }
