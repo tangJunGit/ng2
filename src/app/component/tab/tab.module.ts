@@ -18,4 +18,4 @@ import { TabComponent, TabsetComponent }   from './tab.component';
     ],
     providers: [],
 })
-export class TabModule { }
+export class TabDemoModule { }
