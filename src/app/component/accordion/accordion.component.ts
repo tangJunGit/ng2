@@ -25,7 +25,7 @@ export class AccordionGroupComponent implements OnInit {
     @Input() heading:string;                // title
     @Input() isOpen:Boolean;                // 默认不展开
     
-    constructor(@Inject(forwardRef(() => AccordionComponent)) public accordion: AccordionComponent) { }
+    constructor(@Inject(forwardRef(() => AccordionComponent)) private _accordion: AccordionComponent) { }
 
     ngOnInit() { }
     /**
@@ -39,8 +39,8 @@ export class AccordionGroupComponent implements OnInit {
         event.preventDefault();
         
         // 如果需要折叠其他的，就调用 accordion.setOpen 方法
-        if(this.accordion.closeOthers){
-            this.accordion.setOpen(this);
+        if(this._accordion.closeOthers){
+            this._accordion.setOpen(this);
         }else{
             this.isOpen = !this.isOpen;
         }
