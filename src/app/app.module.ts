@@ -26,6 +26,7 @@ import { StompDemoModule } from './component/stompjs/stomp.module';
 import { TabDemoModule } from './component/tab/tab.module';
 import { AccordionDemoModule } from './component/accordion/accordion.module';
 import { CollapseDemoModule } from './component/collapse/collapse.module';
+import { BaiduMapDemoModule } from './component/baiduMap/baiduMap.module';
 
 @NgModule({
     imports: [
@@ -48,7 +49,8 @@ import { CollapseDemoModule } from './component/collapse/collapse.module';
         StompDemoModule,
         TabDemoModule,
         AccordionDemoModule,
-        CollapseDemoModule
+        CollapseDemoModule,
+        BaiduMapDemoModule
     ],
     declarations: [
         AppComponent
