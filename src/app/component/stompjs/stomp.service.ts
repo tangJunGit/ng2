@@ -19,7 +19,7 @@ export class StompService {
     //webscoket状态
     state: Subject<string> = new Subject<string>();
 
-    constructor(private configService: ConfigService) { }
+    constructor(private _configService: ConfigService) { }
     /**
      * 连接webscoket
      * 
@@ -29,7 +29,7 @@ export class StompService {
      * @memberOf StompService
      */
     on_connect(imei?: string[]) {
-         this.configService.getConfig().subscribe((config: Config) => {
+         this._configService.getConfig().subscribe((config: Config) => {
             this.config = config;
             this.creat(imei);
         });

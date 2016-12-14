@@ -18,35 +18,35 @@ export class StompComponent implements OnInit, OnDestroy {
     messages: any;
     imei: string[] = ['864695020005882'];
 
-    constructor(private stompService: StompService) { }
+    constructor(private _stompService: StompService) { }
 
     ngOnInit() {
         this.onconnect();
         
         //接受收据
-        this.stompService.messages.subscribe((message: any)=>{
+        this._stompService.messages.subscribe((message: any)=>{
             this.messages = message;
         });
 
         //接受状态
-        this.stompService.state.subscribe((state: string)=>{
+        this._stompService.state.subscribe((state: string)=>{
             this.state = state;
         });
      }
 
      ngOnDestroy(){
-         this.stompService.on_disconnect();
+         this._stompService.on_disconnect();
      }
 
      onconnect(imei?: string[]){
-        this.stompService.on_connect(imei);
+        this._stompService.on_connect(imei);
      }
 
      onsubscribe(){
-         this.stompService.on_subscribe(this.imei);
+         this._stompService.on_subscribe(this.imei);
      }
     onunsubscribe(){
-        this.stompService.on_unsubscribe(this.imei);
+        this._stompService.on_unsubscribe(this.imei);
     }
 
 }

@@ -8,10 +8,10 @@ import { Config } from './stomp.model';
 export class ConfigService {
     url: string = 'assets/mock/stomp-config.json';
 
-    constructor(private http: Http) { }
+    constructor(private _http: Http) { }
 
     getConfig(): Observable<Config>{
-        return this.http.get(this.url)
+        return this._http.get(this.url)
                 .map((res: Response) => {
                     return res.json();
                 });
