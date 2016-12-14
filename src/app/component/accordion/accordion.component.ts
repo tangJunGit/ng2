@@ -9,6 +9,7 @@ import { Component, OnInit, Input, Inject, ContentChildren, QueryList, forwardRe
                     <a href>
                         <span *ngIf="heading">{{heading}}</span>
                     </a>
+                    <ng-content select="[accordion-heading]"></ng-content>
                 </h4>
             </div>
             <div class="panel-collapse" [collapse]="isOpen">
@@ -21,8 +22,8 @@ import { Component, OnInit, Input, Inject, ContentChildren, QueryList, forwardRe
     styleUrls: ['./accordion-group.css']
 })
 export class AccordionGroupComponent implements OnInit {
-    isOpen: Boolean;
-    @Input() heading:string;
+    @Input() heading:string;                // title
+    @Input() isOpen:Boolean;                // 默认不展开
     
     constructor(@Inject(forwardRef(() => AccordionComponent)) public accordion: AccordionComponent) { }
 
@@ -36,11 +37,14 @@ export class AccordionGroupComponent implements OnInit {
      */
     toggleOpen(event:MouseEvent):void {
         event.preventDefault();
-        this.isOpen = !this.isOpen;
         
         // 如果需要折叠其他的，就调用 accordion.setOpen 方法
-        if(!this.accordion.closeOthers) return;
-        this.accordion.setOpen(this);
+        if(this.accordion.closeOthers){
+            this.accordion.setOpen(this);
+        }else{
+            this.isOpen = !this.isOpen;
+        }
+        
     }
 }
 
@@ -50,8 +54,7 @@ export class AccordionGroupComponent implements OnInit {
     template: `<ng-content></ng-content>`
 })
 export class AccordionComponent implements OnInit {
-    // 是否需要折叠其他的
-    @Input() closeOthers:boolean;
+    @Input() closeOthers:boolean;             // 默认不折叠其他的
 
     // 获取 AccordionGroupComponent
     @ContentChildren(AccordionGroupComponent) AccordionGroup: QueryList<AccordionGroupComponent>;          
@@ -67,8 +70,9 @@ export class AccordionComponent implements OnInit {
      * 
      * @memberOf AccordionComponent
      */
-    setOpen(group: AccordionGroupComponent) {   
+    setOpen(group: AccordionGroupComponent) {  
+        let isOpen =  group.isOpen;
         this.AccordionGroup.toArray().forEach((t) => t.isOpen = false);
-        group.isOpen = true;
+        group.isOpen = !isOpen;
     }
 }
