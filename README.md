@@ -7,6 +7,7 @@
 3. collapse （折叠）
 4. accordion （手风琴）
 5. baiduMap （百度地图）
+6. Modal （模态框）
 
 ### Example（例子）
 
