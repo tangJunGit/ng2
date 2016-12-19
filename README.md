@@ -8,6 +8,7 @@
 4. accordion （手风琴）
 5. baiduMap （百度地图）
 6. modal （模态框）
+7. pagination （分页）
 
 ### Example（例子）
 
