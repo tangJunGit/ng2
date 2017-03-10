@@ -7,7 +7,7 @@ const ENV = process.env.NODE_ENV = process.env.ENV = 'development';
 module.exports = function () {
   return webpackMerge(commonConfig({env: ENV}), {
     output: {
-        path: helpers.root('aot'),        
+        path: helpers.root('dist'),        
         filename: '[name].bundle.js',
         sourceMapFilename: '[name].map',
         chunkFilename: '[id].chunk.js'

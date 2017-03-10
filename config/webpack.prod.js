@@ -27,7 +27,7 @@ module.exports = function () {
                 }, 
                 {
                     test: /\.scss$/,
-                    loaders: ['to-string-loader', 'css-loader', "scss-loader"]
+                    loaders: ['to-string-loader', 'css-loader', "sass-loader"]
                 },
                 {
                     test: /\.html$/,

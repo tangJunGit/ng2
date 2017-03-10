@@ -2,6 +2,7 @@ const helpers = require('./helpers');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 
 module.exports = function (options) {
@@ -25,20 +26,18 @@ module.exports = function (options) {
             name: ['app', 'vendor', 'polyfills']
         }),
 
-        //复制文件与文件夹
-        // new CopyWebpackPlugin([
-        //     {
-        //     from: 'src/assets',
-        //     to: 'assets',
-        //     }
-        // ]),
+        //复制文件夹到assets
+        new CopyWebpackPlugin([
+            {
+                from: 'src/assets',
+                to: 'assets',
+            }
+        ]),
 
         // 通过 webpack 简化了 html 页面
         new HtmlWebpackPlugin({
-            // title: 'Angular2 demo',
-            baseUrl: '/',
-            // favicon: 'src/assets/images/favicon.ico',  
-            template: 'index.html'
+            favicon: 'src/assets/images/favicon.ico',  
+            template: 'src/index.html'
         }),
 
         //定义变量
@@ -53,7 +52,7 @@ module.exports = function (options) {
     ],
 
     devServer: {
-        contentBase: './',
+        contentBase: 'src/',       // 启动服务，找寻 index.html 的路径
         inline: true,
         stats: 'errors-only',
         historyApiFallback: true,

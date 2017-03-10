@@ -7,13 +7,16 @@
 # 安装
 npm install
 
-# 启动服务
-# url: http://localhost:3001
+# 启动 JIT 服务
+# url: http://localhost:3000
+# 或者 npm run dev
 npm start
 
-# 通过 AOT 编译项目
+# 启动 AOT 服务
+# url: http://localhost:3001
+npm run dev:aot
+
+# 打包 AOT 编译项目
 npm run build
 
-# 通过 rollup 编译项目
-npm run rollup    
 
