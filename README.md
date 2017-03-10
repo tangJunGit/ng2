@@ -1,5 +1,9 @@
 # angular2-webpack2
 
+#Example （例子）
+
+1. FormBuilder （表单）
+2. Validation （表单验证）
 
 ### npm scripts
 

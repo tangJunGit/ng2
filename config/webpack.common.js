@@ -52,7 +52,7 @@ module.exports = function (options) {
     ],
 
     devServer: {
-        contentBase: 'src/',       // 启动服务，找寻 index.html 的路径
+        contentBase: 'src/',       // 确定 app 的根目录，也就是 index.html 的路径
         inline: true,
         stats: 'errors-only',
         historyApiFallback: true,

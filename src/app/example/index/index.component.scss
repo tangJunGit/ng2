@@ -1,5 +1,11 @@
-p{
-       span{
-            font-size: 40px;
-       }
-    }
+main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: #fff;
+    text-align: center;
+    overflow: auto;
+    background-color: rgb(80, 151, 213);
+}
