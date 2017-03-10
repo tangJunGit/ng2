@@ -1,73 +1,45 @@
 const helpers = require('./helpers');
-const webpackMerge = require('webpack-merge'); 
+const webpack = require('webpack');
+const webpackMerge = require('webpack-merge');
 const commonConfig = require('./webpack.common.js');
+const ENV = process.env.NODE_ENV = process.env.ENV = 'development';
 
-/**
- * Webpack Plugins
- */
-const DefinePlugin = require('webpack/lib/DefinePlugin');
-const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin');
-const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
-
-/**
- * ENV
- */
-const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
-const METADATA = {
-  host: 'localhost',
-  port: 3000,
-  ENV: ENV,
-};
-
-module.exports = function (options) {
+module.exports = function () {
   return webpackMerge(commonConfig({env: ENV}), {
-
-    devtool: 'cheap-module-source-map',
-
     output: {
-
-      path: helpers.root('dist'),
-      filename: '[name].[hash].js',
-      sourceMapFilename: '[name].[hash].map',
-      chunkFilename: '[name].chunk.js',
-
+        path: helpers.root('aot'),        
+        filename: '[name].bundle.js',
+        sourceMapFilename: '[name].map',
+        chunkFilename: '[id].chunk.js'
     },
 
-    plugins: [
-      new NamedModulesPlugin(),
-
-      new LoaderOptionsPlugin({
-        debug: true,
-        options: {
-          tslint: {
-            emitErrors: false,
-            failOnHint: false,
-            resourcePath: 'src'
-          },
-
-        }
-      }),
-
-    ],
-
+    module: {
+        rules: [
+            {
+                test: /\.ts$/,
+                loaders: [
+                    'awesome-typescript-loader',
+                    'angular2-router-loader',
+                    'angular2-template-loader'
+                ]
+            }, 
+            {
+                test: /\.css$/,
+                loaders: ['to-string-loader', 'css-loader']
+            }, 
+            {
+                test: /\.scss$/,
+                loaders: ['to-string-loader', 'css-loader', "sass-loader"]
+            },
+            {
+                test: /\.html$/,
+                loader: 'raw-loader'
+            }
+        ]
+    },
+    
     devServer: {
-      port: METADATA.port,
-      host: METADATA.host,
-      historyApiFallback: true,
-      watchOptions: {
-        aggregateTimeout: 300,
-        poll: 1000
-      },
-      contentBase: "src/",
-      // outputPath: helpers.root('dist'),
-//      代理
-//       proxy: {  
-//           '/youtube/*': {  
-//               target: 'https://www.googleapis.com/',  
-//               secure: false  
-//           }  
-//       }
-    }
-
+        port: 3000,
+    },
   });
 }

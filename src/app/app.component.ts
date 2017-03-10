@@ -1,9 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+
 
 @Component({
     selector: 'my-app',
-     template: `
-         <router-outlet></router-outlet>
-      `
+    template: `<router-outlet></router-outlet>`,
 })
-export class AppComponent { }
+export class AppComponent {
+    constructor( ) {
+        
+    }
+
+}
