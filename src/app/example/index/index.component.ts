@@ -7,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexComponent implements OnInit {
   exampleLinks: Array<any> = [
-    {path: '/form', text: 'Form（表单）'},
+    {path: '/form', text: 'Form'},
     {path: '/form-builder', text: 'FormBuilder'},
-    {path: '/validation', text: 'Validations（验证）'},
+    {path: '/validation', text: 'Validations'},
+    {path: '/http', text: 'Http'},
   ];
 
   componentLinks: Array<any> = [

@@ -3,12 +3,11 @@ const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 const ngtools = require('@ngtools/webpack');
 const commonConfig = require('./webpack.common.js');
-const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
 
 module.exports = function () {
-    return webpackMerge(commonConfig({env: ENV}), {
+    return webpackMerge(commonConfig(), {
         output: {
-            path: helpers.root('aot'),       
+            path: helpers.root('dist'),       
             filename: '[name].[chunkhash].bundle.js',
             chunkFilename: '[id].[chunkhash].chunk.js'
         },

@@ -2,10 +2,9 @@ const helpers = require('./helpers');
 const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 const commonConfig = require('./webpack.common.js');
-const ENV = process.env.NODE_ENV = process.env.ENV = 'development';
 
 module.exports = function () {
-  return webpackMerge(commonConfig({env: ENV}), {
+  return webpackMerge(commonConfig(), {
     output: {
         path: helpers.root('dist'),        
         filename: '[name].bundle.js',

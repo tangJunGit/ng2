@@ -5,7 +5,7 @@ const DefinePlugin = require('webpack/lib/DefinePlugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 
-module.exports = function (options) {
+module.exports = function () {
   return {
     devtool: 'inline-source-map',
 
@@ -39,15 +39,6 @@ module.exports = function (options) {
             favicon: 'src/assets/images/favicon.ico',  
             template: 'src/index.html'
         }),
-
-        //定义变量
-        new DefinePlugin({
-          'ENV' : JSON.stringify(options.ENV),
-          'process.env': {
-            'ENV': JSON.stringify(options.ENV),
-            'NODE_ENV': JSON.stringify(options.ENV),
-          }
-      }),
         
     ],
 
