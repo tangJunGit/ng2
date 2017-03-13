@@ -17,8 +17,7 @@ export class HttpService {
     getDataPromise (): Promise<any> {
         return this.http.get(this.url)
                 .toPromise()
-                .then(this.extractData)
-                .catch(this.handleError);
+                .then(this.extractData);
     }
 
 

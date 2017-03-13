@@ -5,6 +5,7 @@
 1. FormBuilder （表单）
 2. Validation （表单验证）
 3. Http （请求）
+4. ActivatedRoute （懒加载，路由参数）
 
 ### npm scripts
 

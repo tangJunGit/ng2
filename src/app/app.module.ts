@@ -8,6 +8,10 @@ import { APP_BASE_HREF } from '@angular/common';
 import { AppComponent } from './app.component';
 import { routes, routerComponents } from './app.routing'
 
+// 预加载需要提前申明服务
+import { PreLoadService } from './example/router/pre-load.service';             
+import { HttpService } from './example/http/http.service';              
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -22,7 +26,10 @@ import { routes, routerComponents } from './app.routing'
     routerComponents,
   ],
   providers: [
-    {provide: APP_BASE_HREF, useValue: '/ng2'}
+    PreLoadService,
+    HttpService,
+    {provide: APP_BASE_HREF, useValue: '/ng2'},
+    
   ],
   bootstrap: [AppComponent]
 })
