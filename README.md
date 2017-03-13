@@ -7,6 +7,7 @@
 3. Http （请求）
 4. ActivatedRoute （懒加载，路由参数）
 5. canActivate （守卫）
+6. Directive （指令）
 
 ### npm scripts
 

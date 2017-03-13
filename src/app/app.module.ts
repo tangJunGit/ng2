@@ -14,7 +14,10 @@ import { HttpService } from './example/http/http.service';
 
 // 守卫需要提前申明服务
 import { AuthService } from './example/auth/auth.service';               
-import { LoggedInGuardService } from './example/auth/loggedIn.guard';               
+import { LoggedInGuardService } from './example/auth/loggedIn.guard';         
+
+// 指令
+import { HighlightDirective } from './example/directive/highlight.directive';      
 
 @NgModule({
   imports: [
@@ -28,6 +31,7 @@ import { LoggedInGuardService } from './example/auth/loggedIn.guard';
   declarations: [
     AppComponent,
     routerComponents,
+    HighlightDirective, 
   ],
   providers: [
     PreLoadService,
@@ -35,7 +39,6 @@ import { LoggedInGuardService } from './example/auth/loggedIn.guard';
     AuthService,
     LoggedInGuardService,
     {provide: APP_BASE_HREF, useValue: '/ng2'},
-    
   ],
   bootstrap: [AppComponent]
 })
