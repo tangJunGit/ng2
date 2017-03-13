@@ -10,7 +10,11 @@ import { routes, routerComponents } from './app.routing'
 
 // 预加载需要提前申明服务
 import { PreLoadService } from './example/router/pre-load.service';             
-import { HttpService } from './example/http/http.service';              
+import { HttpService } from './example/http/http.service';         
+
+// 守卫需要提前申明服务
+import { AuthService } from './example/auth/auth.service';               
+import { LoggedInGuardService } from './example/auth/loggedIn.guard';               
 
 @NgModule({
   imports: [
@@ -28,6 +32,8 @@ import { HttpService } from './example/http/http.service';
   providers: [
     PreLoadService,
     HttpService,
+    AuthService,
+    LoggedInGuardService,
     {provide: APP_BASE_HREF, useValue: '/ng2'},
     
   ],
