@@ -22,6 +22,9 @@ import { LoggedInGuardService } from './example/auth/loggedIn.guard';
 // 指令
 import { DirectiveComponent } from './example/directive/directive.component';              
 
+// 通道
+import { PipeComponent } from './example/pipe/pipe.component';      
+
 // 配置路由
 export const routes: Routes = [
   { path: '', redirectTo: 'index',pathMatch: 'full' },
@@ -46,6 +49,7 @@ export const routes: Routes = [
     canActivate: [LoggedInGuardService]          // 守卫
   },
   { path: 'directive', component: DirectiveComponent },
+  { path: 'pipe', component: PipeComponent },
   // { path: 'lazy', loadChildren: './example/lazy/lazy.module#FormModule' },
   { path: '**', component: IndexComponent }
 ];
@@ -64,4 +68,5 @@ export const routerComponents = [
   AuthComponent,
   ProtectedComponent,
   DirectiveComponent,
+  PipeComponent,
 ];

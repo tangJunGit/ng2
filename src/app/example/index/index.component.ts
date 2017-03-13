@@ -15,6 +15,7 @@ export class IndexComponent implements OnInit {
     {path: '/router', text: 'Router'},
     {path: '/auth', text: '守卫'},
     {path: '/directive', text: '指令'},
+    {path: '/pipe', text: '通道'},
   ];
 
   componentLinks: Array<any> = [

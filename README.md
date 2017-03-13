@@ -8,6 +8,7 @@
 4. ActivatedRoute （懒加载，路由参数）
 5. canActivate （守卫）
 6. Directive （指令）
+7. Pipe （通道）
 
 ### npm scripts
 
