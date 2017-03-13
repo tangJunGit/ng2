@@ -11,6 +11,7 @@ export class IndexComponent implements OnInit {
     {path: '/form-builder', text: 'FormBuilder'},
     {path: '/validation', text: 'Validations'},
     {path: '/http', text: 'Http'},
+    {path: '/http-search', text: 'Search'},
   ];
 
   componentLinks: Array<any> = [
