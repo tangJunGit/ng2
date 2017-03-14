@@ -41,6 +41,9 @@ import { TabDemoComponent } from './component/tab/tab-demo.component';
 // 折叠
 import { CollapseDemoComponent } from './component/collapse/collapse-demo.component';
 
+// 手风琴
+import { AccordionDemoComponent } from './component/accordion/accordion-demo.component';
+
 // 配置路由
 export const routes: Routes = [
   { path: '', redirectTo: 'index',pathMatch: 'full' },
@@ -71,7 +74,7 @@ export const routes: Routes = [
   { path: 'dep-injection', component: DepInjectionComponent },
   { path: 'tab', component: TabDemoComponent },
   { path: 'collapse', component: CollapseDemoComponent },
-  { path: 'accordion', loadChildren: './component/accordion#AccordionModule' },
+  { path: 'accordion', component: AccordionDemoComponent },
   { path: '**', component: IndexComponent }
 ];
 
@@ -98,4 +101,5 @@ export const routerComponents = [
   DepInjectionComponent,
   TabDemoComponent,
   CollapseDemoComponent,
+  AccordionDemoComponent,
 ];
