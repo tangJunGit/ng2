@@ -1,18 +1,13 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
 
-import { CollapseDemoComponent }   from './collapse-demo.component';     // demo
-import { CollapseDirective } from './collapse.directive';                // 指令
+import { CollapseDirective } from './collapse.directive';                
 
 @NgModule({
-    imports: [
-        RouterModule.forChild([{ path: 'collapse', component: CollapseDemoComponent }]),
-    ],
+    imports: [],
     exports: [
         CollapseDirective
     ],
     declarations: [
-        CollapseDemoComponent,
         CollapseDirective
     ],
     providers: [],
