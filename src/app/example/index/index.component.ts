@@ -25,6 +25,7 @@ export class IndexComponent implements OnInit {
     {path: '/tab', text: '标签页'},
     {path: '/collapse', text: '折叠'},
     {path: '/accordion', text: '手风琴'},
+    {path: '/baiduMap', text: '百度地图'},
   ];
   constructor() { }
 

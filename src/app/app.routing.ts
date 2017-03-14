@@ -44,6 +44,9 @@ import { CollapseDemoComponent } from './component/collapse/collapse-demo.compon
 // 手风琴
 import { AccordionDemoComponent } from './component/accordion/accordion-demo.component';
 
+// 百度地图
+import { BaiduMapDemoComponent } from './component/baiduMap/baiduMap-demo.component';
+
 // 配置路由
 export const routes: Routes = [
   { path: '', redirectTo: 'index',pathMatch: 'full' },
@@ -76,6 +79,7 @@ export const routes: Routes = [
   { path: 'tab', component: TabDemoComponent },
   { path: 'collapse', component: CollapseDemoComponent },
   { path: 'accordion', component: AccordionDemoComponent },
+  { path: 'baiduMap', component: BaiduMapDemoComponent },
   { path: '**', component: IndexComponent }
 ];
 
@@ -103,4 +107,5 @@ export const routerComponents = [
   TabDemoComponent,
   CollapseDemoComponent,
   AccordionDemoComponent,
+  BaiduMapDemoComponent,
 ];

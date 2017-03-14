@@ -23,6 +23,7 @@ import { LazyModule } from './example/lazy/lazy.module';
 import { TabModule } from './component/tab';  
 import { CollapseModule } from './component/collapse';  
 import { AccordionModule } from './component/accordion';  
+import { BaiduMapModule } from './component/baiduMap';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { AccordionModule } from './component/accordion';
     TabModule,
     CollapseModule,
     AccordionModule,
+    BaiduMapModule,
   ],
   declarations: [
     AppComponent,
