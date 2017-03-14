@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { TabComponent, TabsetComponent }   from './tab.component';   // 组件导入
+import { TabComponent, TabsetComponent }   from './tab.component';  
 
 @NgModule({
     imports: [
