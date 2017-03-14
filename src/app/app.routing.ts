@@ -50,6 +50,9 @@ import { BaiduMapDemoComponent } from './component/baiduMap/baiduMap-demo.compon
 // 模态框
 import { ModalDemoComponent } from './component/modal/modal-demo.component';
 
+//分页
+import { PaginationDemoComponent } from './component/pagination/pagination-demo.component';
+
 // 配置路由
 export const routes: Routes = [
   { path: '', redirectTo: 'index',pathMatch: 'full' },
@@ -84,6 +87,7 @@ export const routes: Routes = [
   { path: 'accordion', component: AccordionDemoComponent },
   { path: 'baiduMap', component: BaiduMapDemoComponent },
   { path: 'modal', component: ModalDemoComponent },
+  { path: 'pagination', component: PaginationDemoComponent },
   { path: '**', component: IndexComponent }
 ];
 
@@ -113,4 +117,5 @@ export const routerComponents = [
   AccordionDemoComponent,
   BaiduMapDemoComponent,
   ModalDemoComponent,
+  PaginationDemoComponent,
 ];

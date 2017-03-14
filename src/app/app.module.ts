@@ -25,6 +25,7 @@ import { CollapseModule } from './component/collapse';
 import { AccordionModule } from './component/accordion';  
 import { BaiduMapModule } from './component/baiduMap';
 import { ModalModule } from './component/modal';
+import { PaginationModule } from './component/pagination';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { ModalModule } from './component/modal';
     AccordionModule,
     BaiduMapModule,
     ModalModule,
+    PaginationModule,
   ],
   declarations: [
     AppComponent,
