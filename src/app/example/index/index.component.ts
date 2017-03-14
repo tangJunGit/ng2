@@ -21,7 +21,7 @@ export class IndexComponent implements OnInit {
   ];
 
   componentLinks: Array<any> = [
-    
+    {path: '/tab', text: '标签页'},
   ];
   constructor() { }
 

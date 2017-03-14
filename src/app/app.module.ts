@@ -14,9 +14,11 @@ import { HttpService } from './example/http/http.service';
 
 // 守卫需要提前申明服务
 import { AuthService } from './example/auth/auth.service';               
-import { LoggedInGuardService } from './example/auth/loggedIn.guard';         
+import { LoggedInGuardService } from './example/auth/loggedIn.guard';       
 
- 
+// 模块 NgModule
+import { TabModule } from './component/tab/tab.module';  
+
 
 @NgModule({
   imports: [
@@ -26,6 +28,7 @@ import { LoggedInGuardService } from './example/auth/loggedIn.guard';
     JsonpModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes, { useHash: true }),
+    TabModule,
   ],
   declarations: [
     AppComponent,

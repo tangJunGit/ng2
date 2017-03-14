@@ -12,6 +12,11 @@
 8. 组件通信
 9. 依赖注入
 
+### Component （组件）
+
+1. 标签页
+
+
 ### npm scripts
 
 ```bash

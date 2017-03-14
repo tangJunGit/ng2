@@ -63,7 +63,7 @@ export const routes: Routes = [
   { path: 'comm', component: CommComponent },
   { path: 'service-comm', component: ServiceCommComponent },
   { path: 'dep-injection', component: DepInjectionComponent },
-  // { path: 'lazy', loadChildren: './example/lazy/lazy.module#FormModule' },
+  { path: 'tab', loadChildren: './component/tab/tab.module#TabModule' },
   { path: '**', component: IndexComponent }
 ];
 
