@@ -47,6 +47,9 @@ import { AccordionDemoComponent } from './component/accordion/accordion-demo.com
 // 百度地图
 import { BaiduMapDemoComponent } from './component/baiduMap/baiduMap-demo.component';
 
+// 模态框
+import { ModalDemoComponent } from './component/modal/modal-demo.component';
+
 // 配置路由
 export const routes: Routes = [
   { path: '', redirectTo: 'index',pathMatch: 'full' },
@@ -80,6 +83,7 @@ export const routes: Routes = [
   { path: 'collapse', component: CollapseDemoComponent },
   { path: 'accordion', component: AccordionDemoComponent },
   { path: 'baiduMap', component: BaiduMapDemoComponent },
+  { path: 'modal', component: ModalDemoComponent },
   { path: '**', component: IndexComponent }
 ];
 
@@ -108,4 +112,5 @@ export const routerComponents = [
   CollapseDemoComponent,
   AccordionDemoComponent,
   BaiduMapDemoComponent,
+  ModalDemoComponent,
 ];
