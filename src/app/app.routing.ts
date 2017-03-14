@@ -35,6 +35,9 @@ import { ServiceCommComponent } from './example/comm/service-comm.component';
 // 依赖注入
 import { DepInjectionComponent } from './example/dep-injection/dep-injection.component';
 
+// tab
+import { TabDemoComponent } from './component/tab/tab-demo.component';
+
 // 配置路由
 export const routes: Routes = [
   { path: '', redirectTo: 'index',pathMatch: 'full' },
@@ -63,7 +66,7 @@ export const routes: Routes = [
   { path: 'comm', component: CommComponent },
   { path: 'service-comm', component: ServiceCommComponent },
   { path: 'dep-injection', component: DepInjectionComponent },
-  { path: 'tab', loadChildren: './component/tab#TabModule' },
+  { path: 'tab', component: TabDemoComponent },
   { path: 'collapse', loadChildren: './component/collapse#CollapseModule' },
   { path: 'accordion', loadChildren: './component/accordion#AccordionModule' },
   { path: '**', component: IndexComponent }
@@ -90,4 +93,5 @@ export const routerComponents = [
   CountdownTimerComponent,
   ServiceCommComponent,
   DepInjectionComponent,
+  TabDemoComponent,
 ];

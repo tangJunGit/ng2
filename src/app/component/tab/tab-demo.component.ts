@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'tab-demo',
+    selector: 'app-tab-demo',
     template: `
         <h2>Demo Tab</h2>
         <tabset>
