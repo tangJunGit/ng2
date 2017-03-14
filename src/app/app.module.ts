@@ -16,10 +16,10 @@ import { HttpService } from './example/http/http.service';
 import { AuthService } from './example/auth/auth.service';               
 import { LoggedInGuardService } from './example/auth/loggedIn.guard';       
 
-// 懒加载模块
+// 导入懒加载模块
 import { LazyModule } from './example/lazy/lazy.module';
 
-// 模块 NgModule
+// 导入组件模块
 import { TabModule } from './component/tab';  
 import { CollapseModule } from './component/collapse';  
 import { AccordionModule } from './component/accordion';  
