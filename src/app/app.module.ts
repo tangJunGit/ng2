@@ -19,6 +19,7 @@ import { LoggedInGuardService } from './example/auth/loggedIn.guard';
 // 模块 NgModule
 import { TabModule } from './component/tab';  
 import { CollapseModule } from './component/collapse';  
+import { AccordionModule } from './component/accordion';  
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { CollapseModule } from './component/collapse';
     RouterModule.forRoot(routes, { useHash: true }),
     TabModule,
     CollapseModule,
+    AccordionModule,
   ],
   declarations: [
     AppComponent,

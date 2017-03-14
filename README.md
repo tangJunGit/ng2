@@ -15,6 +15,8 @@
 ### Component （组件）
 
 1. 标签页
+2. 折叠
+3. 手风琴
 
 
 ### npm scripts

@@ -8,7 +8,9 @@ import { CollapseDirective } from './collapse.directive';                // æŒ‡ä
     imports: [
         RouterModule.forChild([{ path: 'collapse', component: CollapseDemoComponent }]),
     ],
-    exports: [],
+    exports: [
+        CollapseDirective
+    ],
     declarations: [
         CollapseDemoComponent,
         CollapseDirective

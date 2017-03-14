@@ -23,6 +23,7 @@ export class IndexComponent implements OnInit {
   componentLinks: Array<any> = [
     {path: '/tab', text: '标签页'},
     {path: '/collapse', text: '折叠'},
+    {path: '/accordion', text: '手风琴'},
   ];
   constructor() { }
 

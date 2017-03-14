@@ -65,6 +65,7 @@ export const routes: Routes = [
   { path: 'dep-injection', component: DepInjectionComponent },
   { path: 'tab', loadChildren: './component/tab#TabModule' },
   { path: 'collapse', loadChildren: './component/collapse#CollapseModule' },
+  { path: 'accordion', loadChildren: './component/accordion#AccordionModule' },
   { path: '**', component: IndexComponent }
 ];
 
