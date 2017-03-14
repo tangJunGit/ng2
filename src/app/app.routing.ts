@@ -63,7 +63,8 @@ export const routes: Routes = [
   { path: 'comm', component: CommComponent },
   { path: 'service-comm', component: ServiceCommComponent },
   { path: 'dep-injection', component: DepInjectionComponent },
-  { path: 'tab', loadChildren: './component/tab/tab.module#TabModule' },
+  { path: 'tab', loadChildren: './component/tab#TabModule' },
+  { path: 'collapse', loadChildren: './component/collapse#CollapseModule' },
   { path: '**', component: IndexComponent }
 ];
 

@@ -17,7 +17,8 @@ import { AuthService } from './example/auth/auth.service';
 import { LoggedInGuardService } from './example/auth/loggedIn.guard';       
 
 // 模块 NgModule
-import { TabModule } from './component/tab/tab.module';  
+import { TabModule } from './component/tab';  
+import { CollapseModule } from './component/collapse';  
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { TabModule } from './component/tab/tab.module';
     ReactiveFormsModule,
     RouterModule.forRoot(routes, { useHash: true }),
     TabModule,
+    CollapseModule,
   ],
   declarations: [
     AppComponent,
