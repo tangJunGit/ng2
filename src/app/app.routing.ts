@@ -20,10 +20,18 @@ import { AuthComponent, ProtectedComponent } from './example/auth/auth.component
 import { LoggedInGuardService } from './example/auth/loggedIn.guard';      
 
 // 指令
-import { DirectiveComponent } from './example/directive/directive.component';              
+import { DirectiveComponent } from './example/directive/directive.component';     
+import { HighlightDirective } from './example/directive/highlight.directive';               
 
 // 通道
 import { PipeComponent } from './example/pipe/pipe.component';      
+import { ExponentialStrengthPipe } from './example/pipe/exponential.pipe';      
+
+// 通信
+import { CommComponent } from './example/comm/comm.component';    
+import { CountdownTimerComponent } from './example/comm/timer.Component';    
+import { ServiceCommComponent } from './example/comm/service-comm.component';    
+
 
 // 配置路由
 export const routes: Routes = [
@@ -50,6 +58,8 @@ export const routes: Routes = [
   },
   { path: 'directive', component: DirectiveComponent },
   { path: 'pipe', component: PipeComponent },
+  { path: 'comm', component: CommComponent },
+  { path: 'service-comm', component: ServiceCommComponent },
   // { path: 'lazy', loadChildren: './example/lazy/lazy.module#FormModule' },
   { path: '**', component: IndexComponent }
 ];
@@ -68,5 +78,10 @@ export const routerComponents = [
   AuthComponent,
   ProtectedComponent,
   DirectiveComponent,
+  HighlightDirective, 
   PipeComponent,
+  ExponentialStrengthPipe,
+  CommComponent,
+  CountdownTimerComponent,
+  ServiceCommComponent,
 ];

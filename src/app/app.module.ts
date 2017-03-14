@@ -16,11 +16,7 @@ import { HttpService } from './example/http/http.service';
 import { AuthService } from './example/auth/auth.service';               
 import { LoggedInGuardService } from './example/auth/loggedIn.guard';         
 
-// 指令
-import { HighlightDirective } from './example/directive/highlight.directive';      
-
-// 通道
-import { ExponentialStrengthPipe } from './example/pipe/exponential.pipe';      
+ 
 
 @NgModule({
   imports: [
@@ -34,8 +30,6 @@ import { ExponentialStrengthPipe } from './example/pipe/exponential.pipe';
   declarations: [
     AppComponent,
     routerComponents,
-    HighlightDirective, 
-    ExponentialStrengthPipe,
   ],
   providers: [
     PreLoadService,

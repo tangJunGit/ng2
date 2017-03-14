@@ -3,12 +3,13 @@
 ### Example （例子）
 
 1. FormBuilder （表单）
-2. Validation （表单验证）
-3. Http （请求）
-4. ActivatedRoute （懒加载，路由参数）
-5. canActivate （守卫）
+2. 表单验证
+3. Http 
+4. 懒加载，路由参数
+5. 守卫
 6. Directive （指令）
 7. Pipe （通道）
+8. 组件通信
 
 ### npm scripts
 
