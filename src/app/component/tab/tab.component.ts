@@ -11,7 +11,7 @@ import { Component, OnInit, Input, AfterContentInit, ContentChildren, QueryList 
           </div>
         </div>
     `,
-    styles: ['./tab.css']
+    styleUrls: ['./tab.css']
 })
 export class TabComponent implements OnInit {
     @Input('heading') heading:string; 
