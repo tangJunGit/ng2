@@ -67,6 +67,7 @@ export const routes: Routes = [
     component: ProtectedComponent,
     canActivate: [LoggedInGuardService]          // 守卫
   },
+  { path: 'lazy', loadChildren: './example/lazy/lazy.module#LazyModule' },    // 懒加载
   { path: 'directive', component: DirectiveComponent },
   { path: 'pipe', component: PipeComponent },
   { path: 'comm', component: CommComponent },

@@ -14,6 +14,7 @@ export class IndexComponent implements OnInit {
     {path: '/http-search', text: '搜索框'},
     {path: '/router', text: 'Router'},
     {path: '/auth', text: '守卫'},
+    {path: '/lazy', text: '懒加载'},
     {path: '/directive', text: '指令'},
     {path: '/pipe', text: '通道'},
     {path: '/comm', text: '组件通信'},
