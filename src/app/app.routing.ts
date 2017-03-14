@@ -32,6 +32,8 @@ import { CommComponent } from './example/comm/comm.component';
 import { CountdownTimerComponent } from './example/comm/timer.Component';    
 import { ServiceCommComponent } from './example/comm/service-comm.component';    
 
+// 依赖注入
+import { DepInjectionComponent } from './example/dep-injection/dep-injection.component';
 
 // 配置路由
 export const routes: Routes = [
@@ -60,6 +62,7 @@ export const routes: Routes = [
   { path: 'pipe', component: PipeComponent },
   { path: 'comm', component: CommComponent },
   { path: 'service-comm', component: ServiceCommComponent },
+  { path: 'dep-injection', component: DepInjectionComponent },
   // { path: 'lazy', loadChildren: './example/lazy/lazy.module#FormModule' },
   { path: '**', component: IndexComponent }
 ];
@@ -84,4 +87,5 @@ export const routerComponents = [
   CommComponent,
   CountdownTimerComponent,
   ServiceCommComponent,
+  DepInjectionComponent,
 ];

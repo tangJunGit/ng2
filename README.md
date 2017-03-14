@@ -10,6 +10,7 @@
 6. Directive （指令）
 7. Pipe （通道）
 8. 组件通信
+9. 依赖注入
 
 ### npm scripts
 
