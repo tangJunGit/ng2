@@ -1,6 +1,6 @@
 # angular2-webpack2
 
-### Example （例子）
+### Example 
 
 1. FormBuilder （表单）
 2. 表单验证
@@ -13,7 +13,7 @@
 9. 组件通信
 10. 依赖注入
 
-### Component （组件）
+### Component 
 
 1. 标签页
 2. 折叠
@@ -23,7 +23,7 @@
 6. 分页
 
 
-### npm scripts
+### Usage
 
 ```bash
 # 安装
