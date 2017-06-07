@@ -5,7 +5,7 @@ const DefinePlugin = require('webpack/lib/DefinePlugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 
-module.exports = function () {
+module.exports = function (ENV) {
   return {
     devtool: 'inline-source-map',
 
@@ -21,6 +21,13 @@ module.exports = function () {
     },
 
      plugins: [
+         // 解决 core.es5
+        new webpack.ContextReplacementPlugin(
+            /angular(\\|\/)core(\\|\/)@angular/,/angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
+            helpers.root('../src'), 
+            {} 
+        ),
+
         // 能够识别共用的模块,并把它们放在共用的块
         new webpack.optimize.CommonsChunkPlugin({
             name: ['app', 'vendor', 'polyfills']
@@ -39,6 +46,13 @@ module.exports = function () {
             favicon: 'src/assets/images/favicon.ico',  
             template: 'src/index.html'
         }),
+
+        //定义变量
+        new webpack.DefinePlugin({
+            'process.env': {
+                'ENV': JSON.stringify(ENV)
+            }
+        }),
         
     ],
 
@@ -50,7 +64,13 @@ module.exports = function () {
         watchOptions: {
             aggregateTimeout: 100,
             poll: 500
-        }
+        },
+        // proxy: {
+        //     '/xx': {
+        //         target: 'http://xxxxxxx',
+        //         secure: false
+        //     }
+        // }
     },
 
     node: {

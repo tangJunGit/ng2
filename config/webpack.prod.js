@@ -5,7 +5,7 @@ const ngtools = require('@ngtools/webpack');
 const commonConfig = require('./webpack.common.js');
 
 module.exports = function () {
-    return webpackMerge(commonConfig(), {
+    return webpackMerge(commonConfig('prod'), {
         output: {
             path: helpers.root('dist'),       
             filename: '[name].[chunkhash].bundle.js',
