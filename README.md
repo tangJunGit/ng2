@@ -5,10 +5,10 @@
 1. FormBuilder （表单）
 2. 表单验证
 3. Http 
-4. 懒加载，路由参数
+4. 路由
 5. 守卫
 6. 懒加载
-7. Directive （指令）
+7. Directive （指令） 
 8. Pipe （通道）
 9. 组件通信
 10. 依赖注入
@@ -39,5 +39,5 @@ npm run dev:prod
 
 # 打包 AOT 编译项目
 npm run build
-
+```
 
