@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import { BaiduMapService } from './baiduMap.service'
-import { LoadScriptService } from './loadScript.service'
+import { LoadScriptService } from '../loadScript'
 
 @NgModule({
     imports: [],

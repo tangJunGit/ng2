@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-// import { BaiduMapModule, BaiduMapService, LoadScriptService } from './component/baiduMap';
-import { BaiduMapService } from './'       // ./ 为 baiduMap 文件下的 index.ts
+import { BaiduMapService } from './baiduMap.service';       
 
 @Component({
     selector: 'baidu-demo',
