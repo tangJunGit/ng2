@@ -21,6 +21,7 @@
 4. 百度地图
 5. 模态框
 6. 分页
+7. stompjs
 
 
 ### Usage
@@ -35,7 +36,7 @@ npm start
 
 # 启动 AOT 服务
 # url: http://localhost:3001
-npm run dev:prod
+npm run prod
 
 # 打包 AOT 编译项目
 npm run build

@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 
-import { CountdownTimerComponent }  from './timer.component';
+// import { CountdownTimerComponent }  from './timer.component';
 
 @Component({
   selector: 'app-comm',
@@ -18,15 +18,15 @@ import { CountdownTimerComponent }  from './timer.component';
 })
 export class CommComponent implements OnInit, AfterViewInit {
 
-  // @ViewChild
-  //  @ViewChild(CountdownTimerComponent) private timerComponent: CountdownTimerComponent;
+  // @ViewChild(CountdownTimerComponent) private timerComponent: CountdownTimerComponent;
 
   constructor() { }
 
   ngOnInit() { }
 
-  ngAfterViewInit(){
+  ngAfterViewInit() {
     // console.log(this.timerComponent);
   }
+
 
 }
