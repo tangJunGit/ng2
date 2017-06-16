@@ -28,7 +28,6 @@ import { PipeComponent } from './example/pipe/pipe.component';
 
 // 通信
 import { CommComponent } from './example/comm/comm.component';    
-import { CountdownTimerComponent } from './example/comm/timer.Component';    
 import { ServiceCommComponent } from './example/comm/service-comm.component';    
 
 // 依赖注入
@@ -49,7 +48,7 @@ import { BaiduMapDemoComponent } from './component/baiduMap/baiduMap-demo.compon
 // 模态框
 import { ModalDemoComponent } from './component/modal/modal-demo.component';
 
-//分页
+// 分页
 import { PaginationDemoComponent } from './component/pagination/pagination-demo.component';
 
 // 配置路由

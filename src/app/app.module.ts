@@ -68,6 +68,7 @@ import { ModalDemoComponent } from './component/modal/modal-demo.component';
 // 分页
 import { PaginationDemoComponent } from './component/pagination/pagination-demo.component';
 
+
 // 导入组件模块
 import { TabModule } from './component/tab';                      // tab
 import { CollapseModule } from './component/collapse';            // 折叠
@@ -111,8 +112,8 @@ import { PaginationModule } from './component/pagination';        // 分页
     PipeComponent,
     ExponentialStrengthPipe,
     CommComponent,
-    CountdownTimerComponent,
     ServiceCommComponent,
+    CountdownTimerComponent,
     DepInjectionComponent,
     TabDemoComponent,
     CollapseDemoComponent,

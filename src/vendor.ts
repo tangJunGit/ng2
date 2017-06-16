@@ -9,7 +9,7 @@ import '@angular/router';
 
 // RxJS
 // import 'rxjs/Rx';
-import {Observable} from 'rxjs/Rx';
+import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/observable/throw';
