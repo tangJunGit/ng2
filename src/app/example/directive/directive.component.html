@@ -1,9 +1,15 @@
 <h1>Demo Directive</h1>
 <h4>选择其中一个颜色</h4>
 <div>
-    <input type="radio" name="colors" (click)="color='lightgreen'">Green
-    <input type="radio" name="colors" (click)="color='yellow'">Yellow
-    <input type="radio" name="colors" (click)="color='cyan'">Cyan
+    <label class="radio-inline">
+        <input type="radio" name="colors" (click)="color='lightgreen'">Green
+    </label>
+    <label class="radio-inline">
+        <input type="radio" name="colors" (click)="color='yellow'">Yellow
+    </label>
+    <label class="radio-inline">
+        <input type="radio" name="colors" (click)="color='cyan'">Cyan
+    </label>
 </div>
 <p [myHighlight]="color" [defaultColor]="'violet'">Highlight me! (有默认颜色)</p>
 

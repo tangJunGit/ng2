@@ -35,5 +35,6 @@ export class PaginationDemoComponent implements OnInit {
 
     pageChanged(event:any){
         this.curPage = event.page;
+        console.log(event);
     }
 }

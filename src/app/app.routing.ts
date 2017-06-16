@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 
+// 首页
 import { IndexComponent } from './example/index/index.component';
 
 // 表单
@@ -15,17 +16,15 @@ import { YoutubeSearchComponent, SearchInputComponent } from './example/http/htt
 import { RouterPreLoadComponent, RouterInfoComponent } from './example/router/router-pre-load.component';
 import { PreLoadService } from './example/router/pre-load.service';              
 
- // 守卫
+// 守卫
 import { AuthComponent, ProtectedComponent } from './example/auth/auth.component';
 import { LoggedInGuardService } from './example/auth/loggedIn.guard';      
 
 // 指令
-import { DirectiveComponent } from './example/directive/directive.component';     
-import { HighlightDirective } from './example/directive/highlight.directive';               
+import { DirectiveComponent } from './example/directive/directive.component';               
 
 // 通道
 import { PipeComponent } from './example/pipe/pipe.component';      
-import { ExponentialStrengthPipe } from './example/pipe/exponential.pipe';      
 
 // 通信
 import { CommComponent } from './example/comm/comm.component';    
@@ -55,7 +54,7 @@ import { PaginationDemoComponent } from './component/pagination/pagination-demo.
 
 // 配置路由
 export const routes: Routes = [
-  { path: '', redirectTo: 'index',pathMatch: 'full' },
+  { path: '', redirectTo: 'index', pathMatch: 'full' },
   { path: 'index', component: IndexComponent },
   { path: 'form', component: FormComponent },
   { path: 'form-builder', component: FormBuilderComponent },
@@ -89,33 +88,4 @@ export const routes: Routes = [
   { path: 'modal', component: ModalDemoComponent },
   { path: 'pagination', component: PaginationDemoComponent },
   { path: '**', component: IndexComponent }
-];
-
-// 导出组件
-export const routerComponents = [
-  IndexComponent,
-  FormComponent,
-  FormBuilderComponent,
-  ValidationComponent,
-  HttpComponent,
-  YoutubeSearchComponent,
-  SearchInputComponent,
-  RouterPreLoadComponent,
-  RouterInfoComponent,
-  AuthComponent,
-  ProtectedComponent,
-  DirectiveComponent,
-  HighlightDirective, 
-  PipeComponent,
-  ExponentialStrengthPipe,
-  CommComponent,
-  CountdownTimerComponent,
-  ServiceCommComponent,
-  DepInjectionComponent,
-  TabDemoComponent,
-  CollapseDemoComponent,
-  AccordionDemoComponent,
-  BaiduMapDemoComponent,
-  ModalDemoComponent,
-  PaginationDemoComponent,
 ];

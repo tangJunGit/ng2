@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
     selector: 'accordion-demo',
     template: `
-        <div>
+        <div class="checkbox">
             <label>
                 <input type="checkbox" [(ngModel)]="oneAtATime">
                 是否关闭其他项

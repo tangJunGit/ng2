@@ -13,7 +13,7 @@ import { HttpService } from './http.service';
 @Component({
     selector: 'search-input',
     template: `
-        <input type="text" class="form-control" placeholder="Search" autofocus>
+        <input type="text" class="form-control" placeholder="Search" #input autofocus (change)="search(input.value)">
     `,
     providers: [HttpService]
 })
@@ -27,23 +27,30 @@ export class SearchInputComponent implements OnInit {
 
     ngOnInit() { 
         //将keyup事件放入Observable stream
-        Observable.fromEvent(this.el.nativeElement, 'keyup')
-        .map((e: any) => e.target.value)      //获取input的值
-        .filter((text: string) => text.length > 0)   //过滤input值为空的情况
-        .debounceTime(500)
-        .do(() => {})       
-        .map((query: string) => this.httpService.search(query))
-        .switch()
-        .subscribe(              
-            (results: Array<any>) => {    //on sucesss
+        // Observable.fromEvent(this.el.nativeElement, 'keyup')
+        // .map((e: any) => e.target.value)      //获取input的值
+        // .filter((text: string) => text.length > 0)   //过滤input值为空的情况
+        // .debounceTime(500)
+        // .do(() => {})       
+        // .map((query: string) => this.httpService.search(query))
+        // .switch()
+        // .subscribe(              
+        //     (results: Array<any>) => {    //on sucesss
+        //         this.results.next(results);
+        //     },
+        //     (err: any) => {       // on error
+        //         console.log(err);
+        //     },
+        //     () => {          // on completion
+        //     }
+        // )
+    }
+
+    search(value: string){
+        this.httpService.search(value)
+            .subscribe((results: Array<any>) => {
                 this.results.next(results);
-            },
-            (err: any) => {       // on error
-                console.log(err);
-            },
-            () => {          // on completion
-            }
-        )
+            });
     }
 }
 

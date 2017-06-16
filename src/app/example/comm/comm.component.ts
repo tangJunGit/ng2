@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+
+import { CountdownTimerComponent }  from './timer.component';
 
 @Component({
   selector: 'app-comm',
@@ -14,10 +16,17 @@ import { Component, OnInit } from '@angular/core';
     <button class="btn btn-primary" [routerLink]="['/service-comm']">通过服务来通讯</button>
   `,
 })
-export class CommComponent implements OnInit {
+export class CommComponent implements OnInit, AfterViewInit {
+
+  // @ViewChild
+  //  @ViewChild(CountdownTimerComponent) private timerComponent: CountdownTimerComponent;
 
   constructor() { }
 
   ngOnInit() { }
+
+  ngAfterViewInit(){
+    // console.log(this.timerComponent);
+  }
 
 }

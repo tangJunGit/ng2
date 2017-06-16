@@ -13,11 +13,11 @@ export class AuthService {
         return false;
     }
 
-    logout(): any{
+    logout(){
         localStorage.removeItem('username');
     }
 
-    getUser(): any{
+    getUser(){
         return localStorage.getItem('username');
     }
 

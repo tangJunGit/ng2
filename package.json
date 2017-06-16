@@ -6,11 +6,10 @@
   "scripts": {
     "start": "npm run dev",
     "dev": "webpack-dev-server --config config/webpack.dev.js --color --progress --open",
-    "dev:prod": "webpack-dev-server --config config/webpack.prod.js --color --progress --open",
-    "build": "npm run build:prod",
-    "build:prod": "npm run clean:prod && webpack --config config/webpack.prod.js --colors --progress",
+    "prod": "webpack-dev-server --config config/webpack.prod.js --color --progress --open",
+    "build": "npm run clean && webpack --config config/webpack.prod.js --colors --progress",
     "rimraf": "rimraf",
-    "clean:prod": "npm run rimraf dist"
+    "clean": "npm run rimraf dist"
   },
   "author": "tangjun <tj_910601@163.com>",
   "license": "MIT",

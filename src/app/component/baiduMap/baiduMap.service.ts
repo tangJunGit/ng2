@@ -23,7 +23,7 @@ export class BaiduMapService {
             window[_callback_str] = (map:any) => {
 
                 resolve();
-                console.log('baidu map callback')
+                // console.log('baidu map callback');
                 delete window[_callback_str];
             }
         })
