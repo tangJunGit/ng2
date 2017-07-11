@@ -5,8 +5,9 @@ const ngtools = require('@ngtools/webpack');
 const commonConfig = require('./webpack.common.js');
 
 module.exports = function () {
-    return webpackMerge(commonConfig('prod'), {
+    return webpackMerge(commonConfig('production'), {
         output: {
+            // publicPath: '/assets/',          // 静态资源的url路径前缀
             path: helpers.root('dist'),       
             filename: '[name].[chunkhash].bundle.js',
             chunkFilename: '[id].[chunkhash].chunk.js'
@@ -16,21 +17,22 @@ module.exports = function () {
             rules: [
                 {
                     test: /\.ts$/,
-                    loaders: [
+                    use: [
                         '@ngtools/webpack'
-                    ]
+                    ],
+                    exclude: /node_modules/
                 }, 
                 {
                     test: /\.css$/,
-                    loaders: ['to-string-loader', 'css-loader']
+                    use: ['to-string-loader', 'css-loader', 'postcss-loader']
                 }, 
                 {
                     test: /\.scss$/,
-                    loaders: ['to-string-loader', 'css-loader', "sass-loader"]
+                    use: ['to-string-loader', 'css-loader', 'postcss-loader', 'sass-loader']
                 },
                 {
                     test: /\.html$/,
-                    loader: 'raw-loader'
+                    use: ['raw-loader']
                 }
             ]
         },

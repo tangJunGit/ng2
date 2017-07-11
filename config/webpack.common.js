@@ -5,7 +5,7 @@ const DefinePlugin = require('webpack/lib/DefinePlugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 
-module.exports = function (ENV) {
+module.exports = function (NODE_ENV) {
   return {
     devtool: 'inline-source-map',
 
@@ -50,7 +50,7 @@ module.exports = function (ENV) {
         //定义变量
         new webpack.DefinePlugin({
             'process.env': {
-                'ENV': JSON.stringify(ENV)
+                'ENV': JSON.stringify(NODE_ENV)
             }
         }),
         
@@ -60,7 +60,11 @@ module.exports = function (ENV) {
         contentBase: 'src/',       // 确定 app 的根目录，也就是 index.html 的路径
         inline: true,
         stats: 'errors-only',
-        historyApiFallback: true,
+        historyApiFallback: true,       // 配置为true, 当访问的文件不存在时, 返回根目录下的index.html文件
+        
+        // historyApiFallback: {
+        //     index: '/assets/'        // 指定index.html文件的url路径
+        // },
         watchOptions: {
             aggregateTimeout: 100,
             poll: 500

@@ -4,7 +4,7 @@ const webpackMerge = require('webpack-merge');
 const commonConfig = require('./webpack.common.js');
 
 module.exports = function () {
-  return webpackMerge(commonConfig('dev'), {
+  return webpackMerge(commonConfig('development'), {
     output: {
         path: helpers.root('dist'),        
         filename: '[name].bundle.js',
@@ -16,23 +16,33 @@ module.exports = function () {
         rules: [
             {
                 test: /\.ts$/,
-                loaders: [
+                use: [
                     'awesome-typescript-loader',
                     'angular2-router-loader',
                     'angular2-template-loader'
-                ]
+                ],
+                exclude: /node_modules/
             }, 
             {
                 test: /\.css$/,
-                loaders: ['to-string-loader', 'css-loader']
+                use: ['to-string-loader', 'css-loader', 'postcss-loader']
             }, 
             {
                 test: /\.scss$/,
-                loaders: ['to-string-loader', 'css-loader', "sass-loader"]
+                use: ['to-string-loader', 'css-loader', 'postcss-loader', 'sass-loader']
+            },
+            {
+                test: /\.(png|jpg|jpeg|gif|eot|ttf|woff|woff2|svg|svgz)(\?.+)?$/,
+                use:[{
+                        loader: 'url-loader',
+                        options: {
+                            limit: 10000
+                        }
+                    }]
             },
             {
                 test: /\.html$/,
-                loader: 'raw-loader'
+                use: ['raw-loader']
             }
         ]
     },
