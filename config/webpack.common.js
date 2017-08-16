@@ -50,7 +50,7 @@ module.exports = function (NODE_ENV) {
         //定义变量
         new webpack.DefinePlugin({
             'process.env': {
-                'ENV': JSON.stringify(NODE_ENV)
+                'NODE_ENV': JSON.stringify(NODE_ENV)
             }
         }),
         
