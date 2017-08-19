@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormComponent implements OnInit {
 
-    sku:string = "ABC";
 
     constructor() { }
 

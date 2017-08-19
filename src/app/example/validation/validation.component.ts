@@ -13,27 +13,14 @@ export class ValidationComponent implements OnInit {
 
     constructor(fb:FormBuilder) { 
         this.myForm = fb.group({
-            'sku': [
-              '',               // 初始值为空
-              Validators.compose([              // 合并验证
+            'sku': ['', [              // 合并验证
                 Validators.required,
                 skuValidator
-            ])]
+            ]]
         });
 
-        //监听sku值改变
+        // 验证字段
         this.sku = this.myForm.controls['sku'];
-        this.sku.valueChanges.subscribe(
-            (value: string) => {
-                console.log('sku changed to:', value);
-            }    
-        );
-        ////监听表单改变
-        this.myForm.valueChanges.subscribe(
-            (form: any) => {
-                console.log('form changed to:', form);
-            }
-        );
     }
 
     ngOnInit() { }
