@@ -17,7 +17,7 @@ import { AuthService } from './auth.service';
 export class AuthComponent implements OnInit {
   message: string;
 
-  constructor(private authService: AuthService) {
+  constructor(public authService: AuthService) {
     this.message = '';
   }
 
