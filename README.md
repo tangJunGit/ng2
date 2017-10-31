@@ -1,4 +1,4 @@
-# angular2-webpack2
+# angular4-webpack3
 
 ### Example 
 
