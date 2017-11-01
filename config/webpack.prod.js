@@ -2,6 +2,7 @@ const helpers = require('./helpers');
 const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 const ngtools = require('@ngtools/webpack');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const commonConfig = require('./webpack.common.js');
 
 module.exports = function () {
@@ -43,7 +44,8 @@ module.exports = function () {
                 entryModule:  'src/app/app.module#AppModule'
             }),
 
-            new webpack.optimize.UglifyJsPlugin()
+            // new webpack.optimize.UglifyJsPlugin()
+            new UglifyJSPlugin()
         ],
         
         devServer: {
