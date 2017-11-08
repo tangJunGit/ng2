@@ -43,7 +43,9 @@ export class TabsetComponent implements AfterContentInit {
     constructor() { }
 
     ngAfterContentInit() { 
-        this.tabs.toArray()[0].active = true;   // TabComponent active 默认第一个
+        setTimeout(() => {
+            this.tabs.toArray()[0].active = true;   // TabComponent active 默认第一个
+        }, 0);
     }
 
     /**
